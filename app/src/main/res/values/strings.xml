@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">KADE FC</string>
+    <string name="logo_image">logo image</string>
+    <string name="lorem">Lorem Ipsum</string>
+
+    <string-array name="club_name">
+        <item>PERSIB</item>
+        <item>Barcelona FC</item>
+        <item>Real Madrid FC</item>
+        <item>Bayern Munchen FC</item>
+        <item>Manchester City FC</item>
+        <item>Manchester United FC</item>
+        <item>Chelsea FC</item>
+        <item>AC Milan FC</item>
+        <item>Arsenal FC</item>
+    </string-array>
+
+    <array name="club_image">
+        <item>@drawable/img_persib</item>
+        <item>@drawable/img_barca</item>
+        <item>@drawable/img_madrid</item>
+        <item>@drawable/img_bayern</item>
+        <item>@drawable/img_city</item>
+        <item>@drawable/img_mu</item>
+        <item>@drawable/img_chelsea</item>
+        <item>@drawable/img_acm</item>
+        <item>@drawable/img_arsenal</item>
+    </array>
+
+    <string-array name="club_detail">
+        <item>Persatuan Sepakbola Indonesia Bandung or commonly known as Persib, is a professional football club in Bandung,
+            West Java, Indonesia, that competes in Liga 1, the top tier of Indonesian football.
+            The club was founded in June 1933 from a merger of three clubs.
+            It has not been relegated from the top flight since the foundation of the Liga Indonesia in 1994.
+            Persib\'s home stadium is the Gelora Bandung Lautan Api Stadium which has a capacity of 38,000.
+            The club\'s nicknames are Maung Bandung (The Bandung Tigers) and Pangeran Biru (The Blue Prince).
+        </item>
+        <item>Futbol Club Barcelona, known simply as Barcelona and colloquially as Barça, is a professional football
+            club based in Barcelona, Catalonia, Spain. Founded in 1899 by a group of Swiss, English and Catalan
+            footballers led by Joan Gamper, the club has become a symbol of Catalan culture and Catalanism, hence the
+            motto "Més que un club" ("More than a club").
+        </item>
+        <item>Real Madrid Club de Fútbol, commonly known as Real Madrid, is a professional football club based in
+            Madrid, Spain. Founded on 6 March 1902 as the Madrid Football Club, the club has traditionally worn a white
+            home kit since inception.
+        </item>
+        <item>Fußball-Club Bayern München e.V., commonly known as FC Bayern München, FCB, Bayern Munich, or FC Bayern,
+            is a German sports club based in Munich, Bavaria (Bayern). It is best known for its professional football team,
+            which plays in the Bundesliga, the top tier of the German football league system,
+            and is the most successful club in German football history,
+            having won a record 28 national titles and 18 national cups.
+        </item>
+        <item>Manchester City Football Club, commonly known as City, is a football club in Manchester, England.
+            Founded in 1880 as St. Mark\'s (West Gorton), it became Ardwick Association Football Club in 1887 and
+            Manchester City in 1894. The club\'s home ground is the City of Manchester Stadium in east Manchester,
+            to which it moved in 2003, having played at Maine Road since 1923.
+        </item>
+        <item>Manchester United Football Club, commonly known as Man. United or simply United,
+            is a professional football club based in Old Trafford, Greater Manchester, England,
+            that competes in the Premier League, the top flight of English football. Nicknamed: the Red Devils,
+            the club was founded as Newton Heath LYR Football Club in 1878, changed its name to Manchester United
+            in 1902 and moved to its current stadium, Old Trafford, in 1910.
+        </item>
+        <item>Chelsea Football Club is a professional football club in London, England, that competes in the Premier League.
+            Founded in 1905, the club\'s home ground since then has been Stamford Bridge. helsea won the First Division title
+            in 1955, followed by various cup competitions between 1965 and 1971. The past two decades have seen sustained
+            success, with the club winning 23 trophies since 1997.
+        </item>
+        <item>Associazione Calcio Milan, commonly referred to as A.C. Milan or simply Milan,
+            is a professional football club in Milan, Italy, founded in 1899. The club has spent its entire history,
+            with the exception of the 1980–81 and 1982–83 seasons, in the top flight of Italian football,
+            known as Serie A since 1929–30.
+        </item>
+        <item>Arsenal Football Club is a professional football club based in Islington, London,
+            England, that plays in the Premier League, the top flight of English football.
+            The club has won 13 League titles, a record 13 FA Cups, two League Cups,
+            the League Centenary Trophy, 15 FA Community Shields, one UEFA Cup Winners\'
+            Cup and one Inter-Cities Fairs Cup.</item>
+    </string-array>
+
+
+</resources>
