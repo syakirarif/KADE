@@ -1,5 +1,6 @@
 package com.arifudesu.kadeproject2.view
 
+import com.arifudesu.kadeproject2.model.Event
 import com.arifudesu.kadeproject2.model.Team
 
 /**
@@ -9,4 +10,5 @@ import com.arifudesu.kadeproject2.model.Team
 interface DetailView {
     fun showBadgeTeamHome(badgeTeam: List<Team>)
     fun showBadgeTeamAway(badgeTeam: List<Team>)
+    fun showEventDetail(data: List<Event>)
 }

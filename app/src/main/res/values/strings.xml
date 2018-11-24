@@ -1,8 +1,16 @@
 <resources>
     <string name="app_name">KADE FC</string>
 
-    <string name="lorem">Lorem Ipsum</string>
+    <string name="lorem">Loading data</string>
     <string name="goal_scorer">Goal Scorer</string>
     <string name="just_an_image">just an image</string>
     <string name="lineup">Lineup</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="favorites">Favorites</string>
+    <string name="gk">GK</string>
+    <string name="df">DF</string>
+    <string name="mf">MF</string>
+    <string name="fw">FW</string>
+    <string name="cards">Cards</string>
 </resources>

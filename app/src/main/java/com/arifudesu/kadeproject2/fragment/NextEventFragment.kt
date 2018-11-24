@@ -1,5 +1,6 @@
 package com.arifudesu.kadeproject2.fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -36,14 +37,26 @@ class NextEventFragment : Fragment(), MainView {
 
             startActivity(
                 intentFor<DetailActivity>(
-                    "event" to it
+                    "eventId" to it.eventId,
+                    "eventName" to "${it.eventName}",
+                    "teamHomeId" to "${it.teamHomeId}",
+                    "teamAwayId" to "${it.teamAwayId}"
                 ).singleTop()
             )
 
         }
 
+        swipe_next_event.setColorSchemeColors(Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW)
+        swipe_next_event.isRefreshing = true
+
         rv_list_next.layoutManager = LinearLayoutManager(context)
         rv_list_next.adapter = adapter
+
+        swipe_next_event.setOnRefreshListener {
+            swipe_next_event.isRefreshing = true
+            presenter.getNextEventList()
+        }
+
     }
 
     override fun onCreateView(
@@ -65,6 +78,7 @@ class NextEventFragment : Fragment(), MainView {
         items.clear()
         items.addAll(data)
         adapter.notifyDataSetChanged()
+        swipe_next_event.isRefreshing = false
     }
 
 

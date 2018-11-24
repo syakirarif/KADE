@@ -43,4 +43,17 @@ class DetailPresenter(
             }
         }
     }
+
+    fun getEventDetail(eventId: String?){
+        doAsync {
+            val data = gson.fromJson(
+                apiRepository.doRequest(TheSportsDBApi.getEventDetail(eventId)),
+                DetailResponse::class.java
+            )
+
+            uiThread {
+                view.showEventDetail(data.events)
+            }
+        }
+    }
 }

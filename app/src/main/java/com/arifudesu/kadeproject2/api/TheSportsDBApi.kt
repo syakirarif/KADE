@@ -32,7 +32,7 @@ object TheSportsDBApi {
             .toString()
     }
 
-    /*un getDetail(eventId: String?):String{
+    fun getEventDetail(eventId: String?):String{
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath("api")
             .appendPath("v1")
@@ -42,7 +42,7 @@ object TheSportsDBApi {
             .appendQueryParameter("id", eventId)
             .build()
             .toString()
-    }*/
+    }
 
     fun getTeam(teamId: String?):String{
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()

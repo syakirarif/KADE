@@ -1,8 +1,12 @@
 package com.arifudesu.kadeproject2
 
+import android.content.Context
+import android.content.DialogInterface
+import android.net.ConnectivityManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
+import android.support.v7.app.AlertDialog
 import com.arifudesu.kadeproject2.adapter.TabPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,6 +17,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = cm.activeNetworkInfo
+        if (networkInfo == null || !networkInfo.isConnected) {
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage("No internet connection.\nPlease connect to any network and restart the app")
+            builder.setTitle("Warning")
+            builder.setNeutralButton("OK", DialogInterface.OnClickListener { dialog, id ->
+                dialog.dismiss()
+            })
+
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+        }
+
         configureTabLayout()
 
     }
@@ -21,18 +39,19 @@ class MainActivity : AppCompatActivity() {
 
         tab_layout.addTab(tab_layout.newTab().setText("Past Event"))
         tab_layout.addTab(tab_layout.newTab().setText("Next Event"))
+        tab_layout.addTab(tab_layout.newTab().setText("Favorite"))
 
         val adapter = TabPagerAdapter(
-            supportFragmentManager,
-            tab_layout.tabCount
+                supportFragmentManager,
+                tab_layout.tabCount
         )
         pager.adapter = adapter
 
         pager.addOnPageChangeListener(
-            TabLayout.TabLayoutOnPageChangeListener(tab_layout)
+                TabLayout.TabLayoutOnPageChangeListener(tab_layout)
         )
         tab_layout.addOnTabSelectedListener(object :
-            TabLayout.OnTabSelectedListener {
+                TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 pager.currentItem = tab.position
             }

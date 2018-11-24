@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.api.ApiRepository
 import com.arifudesu.kadeproject2.model.Event
+import com.arifudesu.kadeproject2.model.Favorite
 import com.arifudesu.kadeproject2.model.Team
 import com.arifudesu.kadeproject2.presenter.DetailPresenter
 import com.arifudesu.kadeproject2.util.DateConverter
@@ -22,29 +23,28 @@ import kotlinx.android.synthetic.main.list_content_card.view.*
  * </> with <3 by SyakirArif
  * say no to plagiarism
  */
-class EventAdapter(
-    private val items: List<Event>,
+class FavoriteAdapter(
     private val context: Context?,
-    private val listener: (Event) -> Unit
-) : RecyclerView.Adapter<EventViewHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int) =
-        EventViewHolder(
+    private val items: List<Favorite>,
+    private val listener: (Favorite) -> Unit
+) : RecyclerView.Adapter<FavoriteViewHolder>() {
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int) =
+        FavoriteViewHolder(
             LayoutInflater.from(context).inflate(
                 R.layout.list_content_card,
-                parent,
+                p0,
                 false
             )
         )
 
     override fun getItemCount(): Int = items.size
 
-    override fun onBindViewHolder(parent: EventViewHolder, position: Int) {
-        parent.bindItem(items[position], listener)
+    override fun onBindViewHolder(p0: FavoriteViewHolder, p1: Int) {
+        p0.bindItem(items[p1], listener)
     }
 }
 
-class EventViewHolder(
+class FavoriteViewHolder(
     override val containerView: View
 ) : RecyclerView.ViewHolder(containerView),
     LayoutContainer, DetailView {
@@ -66,6 +66,7 @@ class EventViewHolder(
     }
 
     override fun showEventDetail(data: List<Event>) {
+
         val items = Event(
             data[0].eventId,
             data[0].teamHome,
@@ -90,11 +91,10 @@ class EventViewHolder(
             itemView.tv_list_date.visibility = View.VISIBLE
             itemView.tv_list_date.text = DateConverter.getLongDate(items.eventDate)
         }
+
     }
 
-
-    fun bindItem(items: Event, listener: (Event) -> Unit) {
-
+    fun bindItem(items: Favorite, listener: (Favorite) -> Unit) {
         val request = ApiRepository()
         val gson = Gson()
         presenter = DetailPresenter(this, request, gson)

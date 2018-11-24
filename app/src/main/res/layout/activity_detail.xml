@@ -57,8 +57,7 @@
                         android:id="@+id/img_detail_badge_home"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:contentDescription="@string/just_an_image"
-                        android:src="@drawable/img_blank_badge" />
+                        android:contentDescription="@string/just_an_image" />
 
                     <TextView
                         android:id="@+id/tv_team_home"
@@ -98,6 +97,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="v"
+                        tools:ignore="HardcodedText"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -134,8 +134,7 @@
                         android:id="@+id/img_detail_badge_away"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:contentDescription="@string/just_an_image"
-                        android:src="@drawable/img_blank_badge" />
+                        android:contentDescription="@string/just_an_image" />
 
                     <TextView
                         android:id="@+id/tv_team_away"
@@ -279,7 +278,7 @@
                     <TextView
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="GK"
+                        android:text="@string/gk"
                         android:textAlignment="center"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -310,7 +309,7 @@
                     <TextView
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="DF"
+                        android:text="@string/df"
                         android:textAlignment="center"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -343,7 +342,7 @@
                     <TextView
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="MF"
+                        android:text="@string/mf"
                         android:textAlignment="center"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -374,7 +373,7 @@
                     <TextView
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="FW"
+                        android:text="@string/fw"
                         android:textAlignment="center"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -413,7 +412,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginLeft="4dp"
                 android:gravity="center_vertical"
-                android:text="Cards"
+                android:text="@string/cards"
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
         </LinearLayout>
