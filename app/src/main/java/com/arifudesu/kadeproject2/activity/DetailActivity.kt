@@ -1,4 +1,4 @@
-package com.arifudesu.kadeproject2
+package com.arifudesu.kadeproject2.activity
 
 import android.content.Context
 import android.content.DialogInterface
@@ -12,6 +12,7 @@ import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.api.ApiRepository
 import com.arifudesu.kadeproject2.model.Event
 import com.arifudesu.kadeproject2.model.Team
@@ -23,8 +24,6 @@ import com.arifudesu.kadeproject2.R.drawable.ic_favorite
 import com.arifudesu.kadeproject2.R.drawable.ic_favorite_border
 import com.arifudesu.kadeproject2.model.Favorite
 import com.arifudesu.kadeproject2.db.database
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_detail.*
 import com.arifudesu.kadeproject2.util.DateConverter
@@ -225,7 +224,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
                         Favorite.TEAM_HOME_ID to event.teamHomeId,
                         Favorite.TEAM_AWAY_ID to event.teamAwayId
                     )
-                    toast("Added to Favorite")
+                    toast(getString(R.string.added_to_favorite))
                 }
             } catch (e: SQLiteConstraintException) {
                 Log.d("addToFavorite: ", e.localizedMessage)
@@ -243,7 +242,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
                         Favorite.TABLE_FAVORITE, "(EVENT_ID = {id})",
                         "id" to eventId
                     )
-                    toast("Removed from Favorite")
+                    toast(getString(R.string.removed_from_favorite))
                 }
             } catch (e: SQLiteConstraintException) {
                 Log.d("removeFromFavorite: ", e.localizedMessage)

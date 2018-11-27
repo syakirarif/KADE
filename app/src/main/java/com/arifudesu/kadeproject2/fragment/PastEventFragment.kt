@@ -8,7 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.arifudesu.kadeproject2.DetailActivity
+import com.arifudesu.kadeproject2.activity.DetailActivity
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.adapter.EventAdapter
 import com.arifudesu.kadeproject2.api.ApiRepository

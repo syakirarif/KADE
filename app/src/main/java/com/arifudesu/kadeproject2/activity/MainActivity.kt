@@ -1,4 +1,4 @@
-package com.arifudesu.kadeproject2
+package com.arifudesu.kadeproject2.activity
 
 import android.content.Context
 import android.content.DialogInterface
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v7.app.AlertDialog
+import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.adapter.TabPagerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 

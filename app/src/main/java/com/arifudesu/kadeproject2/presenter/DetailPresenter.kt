@@ -5,8 +5,9 @@ import com.arifudesu.kadeproject2.api.TheSportsDBApi
 import com.arifudesu.kadeproject2.util.DetailResponse
 import com.arifudesu.kadeproject2.view.DetailView
 import com.google.gson.Gson
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  * </> with <3 by SyakirArif
@@ -18,42 +19,39 @@ class DetailPresenter(
     private val gson: Gson
 ) {
 
-    fun getTeamHomeDetail(teamId: String?){
-        doAsync {
+    fun getTeamHomeDetail(teamId: String?) {
+
+        GlobalScope.launch(Dispatchers.Main) {
             val data = gson.fromJson(
-                apiRepository.doRequest(TheSportsDBApi.getTeam(teamId)),
+                apiRepository.doRequest(TheSportsDBApi.getTeam(teamId)).await(),
                 DetailResponse::class.java
             )
 
-            uiThread {
-                view.showBadgeTeamHome(data.teams)
-            }
+            view.showBadgeTeamHome(data.teams)
         }
     }
 
-    fun getTeamAwayDetail(teamId: String?){
-        doAsync {
+    fun getTeamAwayDetail(teamId: String?) {
+
+        GlobalScope.launch(Dispatchers.Main) {
             val data = gson.fromJson(
-                apiRepository.doRequest(TheSportsDBApi.getTeam(teamId)),
+                apiRepository.doRequest(TheSportsDBApi.getTeam(teamId)).await(),
                 DetailResponse::class.java
             )
 
-            uiThread {
-                view.showBadgeTeamAway(data.teams)
-            }
+            view.showBadgeTeamAway(data.teams)
         }
     }
 
-    fun getEventDetail(eventId: String?){
-        doAsync {
+    fun getEventDetail(eventId: String?) {
+
+        GlobalScope.launch(Dispatchers.Main) {
             val data = gson.fromJson(
-                apiRepository.doRequest(TheSportsDBApi.getEventDetail(eventId)),
+                apiRepository.doRequest(TheSportsDBApi.getEventDetail(eventId)).await(),
                 DetailResponse::class.java
             )
 
-            uiThread {
-                view.showEventDetail(data.events)
-            }
+            view.showEventDetail(data.events)
         }
     }
 }
