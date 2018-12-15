@@ -34,10 +34,10 @@
 
                 <TextView
                     android:id="@+id/tv_list_1name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
+                    android:layout_weight="4"
+                    android:gravity="center"
                     android:maxLines="2"
                     android:paddingStart="4dp"
                     android:paddingLeft="4dp"
@@ -49,6 +49,7 @@
                     android:id="@+id/img_list_1badge"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:layout_weight="1"
                     android:contentDescription="@string/just_an_image" />
 
                 <LinearLayout
@@ -108,14 +109,16 @@
                     android:id="@+id/img_list_2badge"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:layout_weight="1"
                     android:contentDescription="@string/just_an_image" />
 
                 <TextView
                     android:id="@+id/tv_list_2name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:maxLines="2"
                     android:paddingStart="4dp"
                     android:paddingLeft="4dp"
                     android:paddingEnd="4dp"

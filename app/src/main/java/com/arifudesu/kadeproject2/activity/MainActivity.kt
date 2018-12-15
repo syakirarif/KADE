@@ -9,7 +9,10 @@ import android.support.design.widget.TabLayout
 import android.support.v7.app.AlertDialog
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.adapter.TabPagerAdapter
+import com.arifudesu.kadeproject2.util.AppPreferences
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.singleTop
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,21 +21,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val networkInfo = cm.activeNetworkInfo
-        if (networkInfo == null || !networkInfo.isConnected) {
-            val builder = AlertDialog.Builder(this)
-            builder.setMessage("No internet connection.\nPlease connect to any network and restart the app")
-            builder.setTitle("Warning")
-            builder.setNeutralButton("OK", DialogInterface.OnClickListener { dialog, id ->
-                dialog.dismiss()
-            })
+        val pref = AppPreferences(this)
 
-            val dialog: AlertDialog = builder.create()
-            dialog.show()
+        val isFirstRun: Boolean = pref.getFirstRun()
+
+        if (isFirstRun) {
+            startActivity(intentFor<SetupActivity>().singleTop())
+        } else {
+
+            val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val networkInfo = cm.activeNetworkInfo
+            if (networkInfo == null || !networkInfo.isConnected) {
+                val builder = AlertDialog.Builder(this)
+                builder.setMessage("No internet connection.\nPlease connect to any network and restart the app")
+                builder.setTitle("Warning")
+                builder.setNeutralButton("OK", DialogInterface.OnClickListener { dialog, id ->
+                    dialog.dismiss()
+                })
+
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
+            }
+
+            configureTabLayout()
         }
-
-        configureTabLayout()
 
     }
 
@@ -43,16 +55,16 @@ class MainActivity : AppCompatActivity() {
         tab_layout.addTab(tab_layout.newTab().setText("Favorite"))
 
         val adapter = TabPagerAdapter(
-                supportFragmentManager,
-                tab_layout.tabCount
+            supportFragmentManager,
+            tab_layout.tabCount
         )
         pager.adapter = adapter
 
         pager.addOnPageChangeListener(
-                TabLayout.TabLayoutOnPageChangeListener(tab_layout)
+            TabLayout.TabLayoutOnPageChangeListener(tab_layout)
         )
         tab_layout.addOnTabSelectedListener(object :
-                TabLayout.OnTabSelectedListener {
+            TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 pager.currentItem = tab.position
             }

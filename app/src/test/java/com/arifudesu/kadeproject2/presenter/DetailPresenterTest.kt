@@ -4,7 +4,7 @@ import com.arifudesu.kadeproject2.api.ApiRepository
 import com.arifudesu.kadeproject2.api.TheSportsDBApi
 import com.arifudesu.kadeproject2.model.Event
 import com.arifudesu.kadeproject2.model.Team
-import com.arifudesu.kadeproject2.util.DetailResponse
+import com.arifudesu.kadeproject2.response.DetailResponse
 import com.arifudesu.kadeproject2.view.DetailView
 import com.google.gson.Gson
 import kotlinx.coroutines.GlobalScope

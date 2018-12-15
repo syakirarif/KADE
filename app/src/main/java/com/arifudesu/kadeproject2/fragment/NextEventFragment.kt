@@ -38,9 +38,9 @@ class NextEventFragment : Fragment(), MainView {
             startActivity(
                 intentFor<DetailActivity>(
                     "eventId" to it.eventId,
-                    "eventName" to "${it.eventName}",
-                    "teamHomeId" to "${it.teamHomeId}",
-                    "teamAwayId" to "${it.teamAwayId}"
+                    "eventName" to it.eventName,
+                    "teamHomeId" to it.teamHomeId,
+                    "teamAwayId" to it.teamAwayId
                 ).singleTop()
             )
 
@@ -67,8 +67,7 @@ class NextEventFragment : Fragment(), MainView {
 
         val request = ApiRepository()
         val gson = Gson()
-        presenter = MainPresenter(this, request, gson)
-
+        presenter = MainPresenter(this, request, gson, this.context)
         presenter.getNextEventList()
 
         return view
@@ -78,7 +77,8 @@ class NextEventFragment : Fragment(), MainView {
         items.clear()
         items.addAll(data)
         adapter.notifyDataSetChanged()
-        swipe_next_event.isRefreshing = false
+        if (swipe_next_event != null)
+            swipe_next_event.isRefreshing = false
     }
 
 

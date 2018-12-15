@@ -68,7 +68,7 @@ class PastEventFragment : Fragment(), MainView {
 
         val request = ApiRepository()
         val gson = Gson()
-        presenter = MainPresenter(this, request, gson)
+        presenter = MainPresenter(this, request, gson, this.context)
 
         presenter.getPastEventList()
 
@@ -79,7 +79,8 @@ class PastEventFragment : Fragment(), MainView {
         items.clear()
         items.addAll(data)
         adapter.notifyDataSetChanged()
-        swipe_past_event.isRefreshing = false
+        if (swipe_past_event != null)
+            swipe_past_event.isRefreshing = false
     }
 
 

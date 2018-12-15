@@ -15,4 +15,42 @@
     <string name="cards">Cards</string>
     <string name="removed_from_favorite">Removed from Favorite</string>
     <string name="added_to_favorite">Added to Favorite</string>
+    <string name="league_badge">league badge</string>
+    <string name="pref_movies">pref_movies</string>
+
+    <string-array name="arr_league_name">
+        <item>English Premier League</item>
+        <item>German Bundesliga</item>
+        <item>Italian Serie A</item>
+        <item>French Ligue 1</item>
+        <item>Spanish La Liga</item>
+        <item>Portuguese Primeira Liga</item>
+        <item>UEFA Champions League</item>
+    </string-array>
+
+    <string-array name="arr_league_id">
+        <item>4328</item>
+        <item>4331</item>
+        <item>4332</item>
+        <item>4334</item>
+        <item>4335</item>
+        <item>4344</item>
+        <item>4480</item>
+    </string-array>
+
+    <array name="arr_league_image">
+        <item>@drawable/logo_premier</item>
+        <item>@drawable/logo_bundesliga</item>
+        <item>@drawable/logo_seriea</item>
+        <item>@drawable/logo_ligue1</item>
+        <item>@drawable/logo_laliga</item>
+        <item>@drawable/logo_liga_portugal</item>
+        <item>@drawable/logo_ucl</item>
+    </array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="club_badge">club badge</string>
+
+
 </resources>

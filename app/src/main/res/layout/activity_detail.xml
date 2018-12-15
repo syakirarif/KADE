@@ -1,499 +1,495 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/tv_league_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/lorem"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_event_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/lorem" />
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            card_view:cardCornerRadius="6dp"
-            card_view:cardElevation="3dp"
-            card_view:cardUseCompatPadding="true">
+            android:orientation="vertical"
+            android:background="#e0e0e0e0"
+            android:padding="8dp">
 
-            <LinearLayout
-                android:id="@+id/linearCard"
+        <TextView
+                android:id="@+id/tv_league_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/lorem"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:id="@+id/tv_event_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/lorem"/>
+
+        <android.support.v7.widget.CardView
+                android:id="@+id/cardContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
+                card_view:cardCornerRadius="6dp"
+                card_view:cardElevation="3dp"
+                card_view:cardUseCompatPadding="true">
+
+            <LinearLayout
+                    android:id="@+id/linearCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
 
                     <ImageView
-                        android:id="@+id/img_detail_badge_home"
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:contentDescription="@string/just_an_image" />
+                            android:id="@+id/img_detail_badge_home"
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:contentDescription="@string/just_an_image"/>
 
                     <TextView
-                        android:id="@+id/tv_team_home"
-                        style="@style/ClubName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="@string/lorem" />
+                            android:id="@+id/tv_team_home"
+                            style="@style/ClubName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/lorem"/>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.5"
-                    android:orientation="vertical">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_score_home"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="32sp"
-                        android:textStyle="bold" />
+                            android:id="@+id/tv_score_home"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="32sp"
+                            android:textStyle="bold"/>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="v"
-                        tools:ignore="HardcodedText"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="v"
+                            tools:ignore="HardcodedText"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.5"
-                    android:orientation="vertical">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_score_away"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="32sp"
-                        android:textStyle="bold" />
+                            android:id="@+id/tv_score_away"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="32sp"
+                            android:textStyle="bold"/>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="3"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:ignore="UseCompoundDrawables">
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
 
                     <ImageView
-                        android:id="@+id/img_detail_badge_away"
-                        android:layout_width="90dp"
-                        android:layout_height="90dp"
-                        android:contentDescription="@string/just_an_image" />
+                            android:id="@+id/img_detail_badge_away"
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:contentDescription="@string/just_an_image"/>
 
                     <TextView
-                        android:id="@+id/tv_team_away"
-                        style="@style/ClubName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="@string/lorem" />
+                            android:id="@+id/tv_team_away"
+                            style="@style/ClubName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/lorem"/>
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="@string/just_an_image"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img_fb_scorer" />
-
-            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:gravity="center_vertical"
-                android:text="@string/goal_scorer"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            card_view:cardCornerRadius="6dp"
-            card_view:cardElevation="3dp"
-            card_view:cardUseCompatPadding="true">
-
-            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/simpleTableLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                android:stretchColumns="*"> <!-- stretch the second column of the layout-->
+                android:orientation="horizontal">
 
-                <!-- first row of the table layout-->
-                <TableRow
-                    android:id="@+id/firstRow"
+            <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/just_an_image"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_fb_scorer"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/goal_scorer"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                card_view:cardCornerRadius="6dp"
+                card_view:cardElevation="3dp"
+                card_view:cardUseCompatPadding="true">
+
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:ignore="UselessParent">
+                    android:orientation="horizontal">
 
-                    <!-- first element of the row-->
-                    <TextView
+                <TextView
                         android:id="@+id/tv_goal_home"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:text="@string/lorem"
-                        android:textAlignment="center" />
+                        android:gravity="center"/>
 
-                    <TextView
+                <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="4dp"
+                        android:background="@android:color/darker_gray"/>
+
+                <TextView
                         android:id="@+id/tv_goal_away"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:text="@string/lorem"
-                        android:textAlignment="center" />
-
-                </TableRow>
-            </TableLayout>
+                        android:gravity="center"/>
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="@string/just_an_image"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img_fb_formation" />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/just_an_image"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_fb_formation"/>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:gravity="center_vertical"
-                android:text="@string/lineup"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/lineup"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"/>
         </LinearLayout>
 
         <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            card_view:cardBackgroundColor="#e2e3fd"
-            card_view:cardCornerRadius="6dp"
-            card_view:cardElevation="3dp"
-            card_view:cardUseCompatPadding="true">
-
-            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="4dp"
-                android:gravity="center_vertical"
-                android:stretchColumns="*"> <!-- stretch the second column of the layout-->
+                android:layout_height="wrap_content"
+                card_view:cardCornerRadius="6dp"
+                card_view:cardElevation="3dp"
+                card_view:cardUseCompatPadding="true">
 
-                <!-- first row of the table layout-->
-                <TableRow
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:background="@android:color/background_light"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp">
+                    android:background="#e2e3fd"
+                    android:orientation="vertical">
 
-                    <!-- first element of the row-->
-                    <TextView
-                        android:id="@+id/tv_home_GK"
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
+                        android:background="@android:color/background_light"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
 
                     <TextView
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/gk"
-                        android:textAlignment="center"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                            android:id="@+id/tv_home_GK"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
 
                     <TextView
-                        android:id="@+id/tv_away_GK"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="@string/gk"
+                            android:layout_gravity="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                    <TextView
+                            android:id="@+id/tv_away_GK"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
 
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp">
-
-                    <!-- first element of the row-->
                     <TextView
-                        android:id="@+id/tv_home_DF"
+                            android:id="@+id/tv_home_DF"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
+
+                    <TextView
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="@string/df"
+                            android:layout_gravity="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                    <TextView
+                            android:id="@+id/tv_away_DF"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
+                </LinearLayout>
+
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
+                        android:background="@android:color/background_light"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
 
                     <TextView
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/df"
-                        android:textAlignment="center"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                            android:id="@+id/tv_home_MF"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
 
                     <TextView
-                        android:id="@+id/tv_away_DF"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="@string/mf"
+                            android:layout_gravity="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                    <TextView
+                            android:id="@+id/tv_away_MF"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
+                </LinearLayout>
+
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:background="@android:color/background_light"
-                    android:paddingBottom="4dp">
-
-                    <!-- first element of the row-->
-                    <TextView
-                        android:id="@+id/tv_home_MF"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
 
                     <TextView
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/mf"
-                        android:textAlignment="center"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                            android:id="@+id/tv_home_FW"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
 
                     <TextView
-                        android:id="@+id/tv_away_MF"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp">
-
-                    <!-- first element of the row-->
-                    <TextView
-                        android:id="@+id/tv_home_FW"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:gravity="center_vertical"
+                            android:text="@string/fw"
+                            android:layout_gravity="center"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
 
                     <TextView
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:text="@string/fw"
-                        android:textAlignment="center"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                            android:id="@+id/tv_away_FW"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tv_away_FW"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
-
-                </TableRow>
-            </TableLayout>
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:contentDescription="@string/just_an_image"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img_fb_card" />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/just_an_image"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_fb_card"/>
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:gravity="center_vertical"
-                android:text="@string/cards"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/cards"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"/>
         </LinearLayout>
 
         <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            card_view:cardBackgroundColor="#e2e3fd"
-            card_view:cardCornerRadius="6dp"
-            card_view:cardElevation="3dp"
-            card_view:cardUseCompatPadding="true">
-
-            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="4dp"
-                android:gravity="center_vertical"
-                android:stretchColumns="*"> <!-- stretch the second column of the layout-->
+                android:layout_height="wrap_content"
+                card_view:cardCornerRadius="6dp"
+                card_view:cardElevation="3dp"
+                card_view:cardUseCompatPadding="true">
 
-                <!-- first row of the table layout-->
-                <TableRow
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:background="@android:color/background_light"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp">
+                    android:background="#e2e3fd"
+                    android:orientation="vertical">
 
-                    <!-- first element of the row-->
-                    <TextView
-                        android:id="@+id/tv_home_yellow"
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
+                        android:background="@android:color/background_light"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:id="@+id/tv_home_yellow"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
 
                     <View
-                        android:layout_width="6dp"
-                        android:layout_height="12dp"
-                        android:layout_gravity="center"
-                        android:background="#ffff00" />
+                            android:layout_width="24dp"
+                            android:layout_height="12dp"
+                            android:layout_gravity="center"
+                            android:background="#ffff00"/>
 
                     <TextView
-                        android:id="@+id/tv_away_yellow"
+                            android:id="@+id/tv_away_yellow"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
+                </LinearLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_margin="4dp"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray"/>
+
+                <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
+                        android:orientation="horizontal">
 
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp">
-
-                    <!-- first element of the row-->
                     <TextView
-                        android:id="@+id/tv_home_red"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
+                            android:id="@+id/tv_home_red"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
 
                     <View
-                        android:layout_width="6dp"
-                        android:layout_height="12dp"
-                        android:layout_gravity="center"
-                        android:background="@android:color/holo_red_light" />
+                            android:layout_width="24dp"
+                            android:layout_height="12dp"
+                            android:layout_gravity="center"
+                            android:background="@android:color/holo_red_light"/>
 
                     <TextView
-                        android:id="@+id/tv_away_red"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/lorem"
-                        android:textAlignment="center" />
-
-                </TableRow>
-
-            </TableLayout>
+                            android:id="@+id/tv_away_red"
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lorem"
+                            android:textAlignment="center"/>
+                </LinearLayout>
+            </LinearLayout>
 
         </android.support.v7.widget.CardView>
 

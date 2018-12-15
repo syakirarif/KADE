@@ -1,4 +1,4 @@
-package com.arifudesu.kadeproject2.util
+package com.arifudesu.kadeproject2.response
 
 import com.arifudesu.kadeproject2.model.Event
 import com.arifudesu.kadeproject2.model.Team

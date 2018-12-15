@@ -2,7 +2,7 @@ package com.arifudesu.kadeproject2.presenter
 
 import com.arifudesu.kadeproject2.api.ApiRepository
 import com.arifudesu.kadeproject2.api.TheSportsDBApi
-import com.arifudesu.kadeproject2.util.DetailResponse
+import com.arifudesu.kadeproject2.response.DetailResponse
 import com.arifudesu.kadeproject2.view.DetailView
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
