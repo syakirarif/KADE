@@ -71,7 +71,7 @@ class MainActivityTest {
     fun testFavorite(){
 
         //memastikan bahwa toolbar dengan id: tab_layout sudah ditampilkan
-        onView(withId(tab_layout))
+        onView(withId(navigation))
             .check(matches(isDisplayed()))
 
         //klik menu toolbar "FAVORITE"
@@ -117,7 +117,7 @@ class MainActivityTest {
     fun testNextEvent(){
 
         //memastikan bahwa toolbar dengan id: tab_layout sudah ditampilkan
-        onView(withId(tab_layout))
+        onView(withId(navigation))
             .check(matches(isDisplayed()))
 
         //klik menu toolbar "NEXT EVENT"
