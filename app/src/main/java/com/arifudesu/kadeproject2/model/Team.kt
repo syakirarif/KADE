@@ -17,6 +17,9 @@ data class Team (
     @SerializedName("strTeam")
     var teamName: String,
 
+    @SerializedName("strAlternate")
+    var teamNameAlternate: String? = null,
+
     @SerializedName("strTeamBadge")
     var teamBadge: String? = null,
 
@@ -27,7 +30,7 @@ data class Team (
     var teamLeague: String,
 
     @SerializedName("idLeague")
-    var leagueIs: String,
+    var leagueId: String,
 
     @SerializedName("strStadium")
     var stadiumName: String? = null,
@@ -35,11 +38,14 @@ data class Team (
     @SerializedName("strStadiumThumb")
     var stadiumThumb: String? = null,
 
-    @SerializedName("strStadiumDescription")
-    var stadiumDesc: String? = null,
+    @SerializedName("strStadiumLocation")
+    var stadiumLocation: String? = null,
 
     @SerializedName("strDescriptionEN")
-    var teamDesc: String
+    var teamDesc: String,
+
+    @SerializedName("strManager")
+    var teamManager: String
 
 
 ):Parcelable

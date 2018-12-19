@@ -19,7 +19,7 @@ class MainActivityTest {
 
     @Rule
     @JvmField
-    var activityRule = ActivityTestRule(MainActivity::class.java)
+    var activityRule = ActivityTestRule(Main2Activity::class.java)
 
     @Test
     fun testPastEvent(){

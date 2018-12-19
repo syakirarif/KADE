@@ -5,7 +5,7 @@ import com.arifudesu.kadeproject2.api.TheSportsDBApi
 import com.arifudesu.kadeproject2.model.Event
 import com.arifudesu.kadeproject2.model.Team
 import com.arifudesu.kadeproject2.response.DetailResponse
-import com.arifudesu.kadeproject2.view.DetailView
+import com.arifudesu.kadeproject2.view.AppView
 import com.google.gson.Gson
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -20,11 +20,11 @@ import org.mockito.MockitoAnnotations
  * say no to plagiarism
  */
 
-class DetailPresenterTest {
+class AppPresenterTest {
 
     @Mock
     private
-    lateinit var view: DetailView
+    lateinit var view: AppView
 
     @Mock
     private
@@ -34,12 +34,12 @@ class DetailPresenterTest {
     private
     lateinit var apiRepository: ApiRepository
 
-    private lateinit var presenter: DetailPresenter
+    private lateinit var presenter: AppPresenter
 
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        presenter = DetailPresenter(view, apiRepository, gson)
+        presenter = AppPresenter(view, apiRepository, gson, null)
     }
 
     @Test

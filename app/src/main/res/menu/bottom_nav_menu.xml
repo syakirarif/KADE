@@ -15,5 +15,9 @@
           android:icon="@drawable/ic_favorite_red_24dp"
           android:title="FAVORITE"/>
 
+    <item android:id="@+id/btm_discover"
+          android:icon="@drawable/ic_explore_white_24dp"
+          android:title="DISCOVER"/>
+
 
 </menu>

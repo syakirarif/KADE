@@ -16,17 +16,18 @@ import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.api.ApiRepository
 import com.arifudesu.kadeproject2.model.Event
 import com.arifudesu.kadeproject2.model.Team
-import com.arifudesu.kadeproject2.presenter.DetailPresenter
-import com.arifudesu.kadeproject2.view.DetailView
 import com.arifudesu.kadeproject2.R.menu.detail_menu
 import com.arifudesu.kadeproject2.R.id.add_to_favorite
 import com.arifudesu.kadeproject2.R.drawable.ic_favorite
 import com.arifudesu.kadeproject2.R.drawable.ic_favorite_border
-import com.arifudesu.kadeproject2.model.Favorite
+import com.arifudesu.kadeproject2.model.FavoriteEvent
 import com.arifudesu.kadeproject2.db.database
+import com.arifudesu.kadeproject2.model.Player
+import com.arifudesu.kadeproject2.presenter.AppPresenter
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_detail.*
 import com.arifudesu.kadeproject2.util.DateConverter
+import com.arifudesu.kadeproject2.view.AppView
 import com.squareup.picasso.Picasso
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete
@@ -35,14 +36,15 @@ import org.jetbrains.anko.db.select
 import org.jetbrains.anko.toast
 
 
-class DetailActivity : AppCompatActivity(), DetailView {
+class DetailActivity : AppCompatActivity(), AppView {
 
-    private lateinit var presenter: DetailPresenter
+    private lateinit var presenter: AppPresenter
     private lateinit var eventId: String
     private lateinit var eventName: String
     private lateinit var teamHomeId: String
     private lateinit var teamAwayId: String
     private lateinit var event: Event
+
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
 
@@ -68,7 +70,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
         favoriteState()
         val request = ApiRepository()
         val gson = Gson()
-        presenter = DetailPresenter(this, request, gson)
+        presenter = AppPresenter(this, request, gson, this)
 
         presenter.getTeamHomeDetail(teamHomeId)
         presenter.getTeamAwayDetail(teamAwayId)
@@ -218,11 +220,11 @@ class DetailActivity : AppCompatActivity(), DetailView {
             try {
                 database.use {
                     insert(
-                        Favorite.TABLE_FAVORITE,
-                        Favorite.EVENT_ID to event.eventId,
-                        Favorite.EVENT_NAME to event.eventName,
-                        Favorite.TEAM_HOME_ID to event.teamHomeId,
-                        Favorite.TEAM_AWAY_ID to event.teamAwayId
+                        FavoriteEvent.TABLE_FAVORITE,
+                        FavoriteEvent.EVENT_ID to event.eventId,
+                        FavoriteEvent.EVENT_NAME to event.eventName,
+                        FavoriteEvent.TEAM_HOME_ID to event.teamHomeId,
+                        FavoriteEvent.TEAM_AWAY_ID to event.teamAwayId
                     )
                     toast(getString(R.string.added_to_favorite))
                 }
@@ -239,7 +241,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
             try {
                 database.use {
                     delete(
-                        Favorite.TABLE_FAVORITE, "(EVENT_ID = {id})",
+                        FavoriteEvent.TABLE_FAVORITE, "(EVENT_ID = {id})",
                         "id" to eventId
                     )
                     toast(getString(R.string.removed_from_favorite))
@@ -262,12 +264,12 @@ class DetailActivity : AppCompatActivity(), DetailView {
 
     private fun favoriteState() {
         database.use {
-            val result = select(Favorite.TABLE_FAVORITE)
+            val result = select(FavoriteEvent.TABLE_FAVORITE)
                 .whereArgs(
                     "(EVENT_ID = {id})",
                     "id" to eventId
                 )
-            val favorite = result.parseList(classParser<Favorite>())
+            val favorite = result.parseList(classParser<FavoriteEvent>())
             if (!favorite.isEmpty()) isFavorite = true
         }
     }
@@ -284,12 +286,22 @@ class DetailActivity : AppCompatActivity(), DetailView {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(title)
         builder.setMessage(message)
-        builder.setNeutralButton("OK", DialogInterface.OnClickListener { dialog, id ->
+        builder.setNeutralButton("OK") { dialog, id ->
             dialog.dismiss()
-        })
+        }
 
         val dialog: AlertDialog = builder.create()
         dialog.show()
 
     }
+
+    override fun showPlayerList(list: List<Player>?) {}
+
+    override fun listPlayer(players: List<Player>?) {}
+
+    override fun listTeam(teams: List<Team>?) {}
+
+    override fun showEventList(data: List<Event>) {}
+
+    override fun showFavoriteList(data: List<FavoriteEvent>) {}
 }

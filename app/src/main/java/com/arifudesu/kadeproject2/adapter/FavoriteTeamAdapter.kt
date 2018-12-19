@@ -9,32 +9,31 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.activity.TeamDetail2Activity
-import com.arifudesu.kadeproject2.model.Team
+import com.arifudesu.kadeproject2.model.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_club.*
 import org.jetbrains.anko.startActivity
 
-class TeamAdapter(
-    private val items: List<Team>,
-    private val context: Context?
-) : RecyclerView.Adapter<ClubViewHolder>() {
+class FavoriteTeamAdapter (
+    private val context: Context?,
+    private val items: List<FavoriteTeam>
+) : RecyclerView.Adapter<FavoriteTeamViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int) =
-        ClubViewHolder(
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int) =
+        FavoriteTeamViewHolder(
             LayoutInflater.from(context).inflate(
                 R.layout.list_club,
-                parent,
+                p0,
                 false
             )
         )
 
-
     override fun getItemCount(): Int = items.size
 
-    override fun onBindViewHolder(viewHolder: ClubViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: FavoriteTeamViewHolder, position: Int) {
 
-        val item: Team = items[position]
+        val item: FavoriteTeam = items[position]
 
         Picasso.get()
             .load(item.teamBadge?.trim())
@@ -48,19 +47,15 @@ class TeamAdapter(
                 "teamId" to item.teamId,
                 "teamName" to item.teamName
             )
-            //context!!.startActivity<TeamDetailActivity>("data" to item)
-            /*val pref = AppPreferences(context)
-            pref.setTeamChoice(items[position].teamId)*/
-
         }
     }
 
 }
 
-class ClubViewHolder(
+class FavoriteTeamViewHolder(
     override val containerView: View
 ) : RecyclerView.ViewHolder(containerView),
-    LayoutContainer {
+        LayoutContainer{
 
     var name: TextView = tv_list_club_name
     var image: ImageView = img_list_club_badge

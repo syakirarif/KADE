@@ -7,7 +7,7 @@
         android:id="@+id/layout_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#e0e0e0"
+        android:background="@drawable/bg_gradient"
         tools:context=".activity.Main2Activity">
 
     <FrameLayout

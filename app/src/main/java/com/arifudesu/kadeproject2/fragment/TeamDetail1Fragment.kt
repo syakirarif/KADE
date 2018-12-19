@@ -7,20 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-
 import com.arifudesu.kadeproject2.R
-import com.arifudesu.kadeproject2.api.ApiRepository
 import com.arifudesu.kadeproject2.model.Team
-import com.arifudesu.kadeproject2.presenter.TeamPresenter
-import com.arifudesu.kadeproject2.view.TeamView
-import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_team_detail1.view.*
 
 class TeamDetail1Fragment : Fragment() {
 
-    //private lateinit var presenter: TeamPresenter
-    //private lateinit var teams: Team
-
-    private lateinit var tvName: TextView
+    //private lateinit var tvName: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,14 +23,13 @@ class TeamDetail1Fragment : Fragment() {
 
         val data = arguments?.get("data") as Team
 
-        tvName = view.findViewById(R.id.frag1_tv_name)
-        tvName.text = data.teamName
+        //tvName = view.findViewById(R.id.frag1_tv_name)
 
-        //val apiRepository = ApiRepository()
-        //val gson = Gson()
-
-        //presenter = TeamPresenter(this, apiRepository, gson)
-        //presenter.getTeamDetail(data.teamId)
+        view.frag1_tv_name.text = data.teamNameAlternate
+        view.frag1_tv_stadium.text = data.stadiumName
+        view.frag1_tv_stadium_location.text = data.stadiumLocation
+        view.frag1_tv_year.text = data.teamFormedYear
+        view.frag1_tv_desc.text = data.teamDesc
 
         return view
     }

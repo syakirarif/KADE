@@ -4,7 +4,6 @@ package com.arifudesu.kadeproject2.fragment
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -12,25 +11,27 @@ import android.view.ViewGroup
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.adapter.PlayerAdapter
 import com.arifudesu.kadeproject2.api.ApiRepository
+import com.arifudesu.kadeproject2.model.Event
+import com.arifudesu.kadeproject2.model.FavoriteEvent
 import com.arifudesu.kadeproject2.model.Player
 import com.arifudesu.kadeproject2.model.Team
-import com.arifudesu.kadeproject2.presenter.TeamPresenter
-import com.arifudesu.kadeproject2.view.TeamView
+import com.arifudesu.kadeproject2.presenter.AppPresenter
+import com.arifudesu.kadeproject2.view.AppView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_team_detail2.*
 
-class TeamDetail2Fragment : Fragment(), TeamView {
+class TeamDetail2Fragment : Fragment(), AppView {
 
     private var items: MutableList<Player> = mutableListOf()
     private lateinit var adapternya: PlayerAdapter
-    private lateinit var presenter: TeamPresenter
+    private lateinit var presenter: AppPresenter
 
     //private lateinit var rvPlayer: RecyclerView
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        adapternya = PlayerAdapter(items, requireContext())
+        adapternya = PlayerAdapter(items, context)
 
         //rvPlayer = findViewById(R.id.detail2_rv_list_player)
         detail2_rv_list_player.layoutManager = LinearLayoutManager(requireContext())
@@ -62,7 +63,7 @@ class TeamDetail2Fragment : Fragment(), TeamView {
         val apiRepository = ApiRepository()
         val gson = Gson()
 
-        presenter = TeamPresenter(this, apiRepository, gson)
+        presenter = AppPresenter(this, apiRepository, gson, context)
         presenter.getPlayerList(data.teamId)
 
         return view
@@ -77,18 +78,26 @@ class TeamDetail2Fragment : Fragment(), TeamView {
             }
     }
 
-    override fun listPlayer(players: List<Player>) {
+    override fun listPlayer(players: List<Player>?) {
         items.clear()
         //items.addAll(players)
-        players.let { items.addAll(it) }
+        players!!.let { items.addAll(it) }
         adapternya.notifyDataSetChanged()
 
     }
 
-    override fun listTeam(teams: List<Team>) {
+    override fun showFavoriteList(data: List<FavoriteEvent>) {}
 
-    }
+    override fun listTeam(teams: List<Team>?) {}
 
+    override fun showBadgeTeamHome(badgeTeam: List<Team>) {}
 
+    override fun showBadgeTeamAway(badgeTeam: List<Team>) {}
+
+    override fun showEventDetail(data: List<Event>) {}
+
+    override fun showPlayerList(list: List<Player>?) {}
+
+    override fun showEventList(data: List<Event>) {}
 
 }

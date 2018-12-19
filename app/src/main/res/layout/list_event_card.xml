@@ -13,41 +13,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
             <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:id="@+id/img_event_card_team_home"
+                    android:id="@+id/fav_team_img_badge"
                     android:src="@drawable/img_blank_badge"/>
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:id="@+id/tv_card_skor_home"
-                    android:text="9"
+                    android:id="@+id/fav_team_tv_name"
+                    android:text="@string/lorem"
                     android:textSize="20sp"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text="V"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:id="@+id/tv_card_skor_away"
-                    android:text="9"
-                    android:textSize="20sp"/>
-
-            <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/img_event_card_team_away"
-                    android:src="@drawable/img_blank_badge"/>
 
         </LinearLayout>
 

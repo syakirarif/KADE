@@ -33,45 +33,11 @@
 
                 <ImageView
                         android:id="@+id/detail2_img_logo"
-                        android:layout_width="72dp"
-                        android:layout_height="72dp"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
                         android:layout_gravity="center"
                         android:contentDescription="@string/just_an_image"
                         android:scaleType="fitCenter"/>
-
-                <TextView
-                        android:id="@+id/detail2_tv_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:shadowColor="@android:color/black"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp"/>
-
-                <TextView
-                        android:id="@+id/detail2_tv_year"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:shadowColor="@android:color/black"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:textColor="@android:color/white"/>
-
-                <TextView
-                        android:id="@+id/detail2_tv_stadium"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:shadowColor="@android:color/black"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:textColor="@android:color/white"/>
             </LinearLayout>
 
 

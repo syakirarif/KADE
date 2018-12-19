@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
  * say no to plagiarism
  */
 @Parcelize
-data class Favorite(
+data class FavoriteEvent(
     val id: Long?,
     val eventId: String?,
     val eventName: String?,

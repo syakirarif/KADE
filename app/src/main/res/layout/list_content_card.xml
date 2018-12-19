@@ -24,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/lorem"
+                android:fontFamily="@font/timmana"
                 android:textAlignment="center" />
 
             <LinearLayout
@@ -43,6 +44,7 @@
                     android:paddingLeft="4dp"
                     android:paddingEnd="4dp"
                     android:paddingRight="4dp"
+                    android:fontFamily="@font/boogaloo"
                     android:text="@string/lorem" />
 
                 <ImageView
@@ -123,6 +125,7 @@
                     android:paddingLeft="4dp"
                     android:paddingEnd="4dp"
                     android:paddingRight="4dp"
+                    android:fontFamily="@font/boogaloo"
                     android:text="@string/lorem" />
 
 

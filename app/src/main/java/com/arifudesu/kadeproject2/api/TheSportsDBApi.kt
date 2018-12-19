@@ -87,4 +87,28 @@ object TheSportsDBApi {
             .toString()
     }
 
+    fun searchPlayer(playerName: String) : String {
+        val uri = Uri.parse(BuildConfig.BASE_URL).buildUpon()
+            .appendPath(BuildConfig.TSDB_API_KEY)
+            .appendPath("searchplayers.php")
+            .appendQueryParameter("p", playerName)
+            .build()
+            .toString()
+
+        Log.d("URI searchPlayer", uri)
+        return uri
+    }
+
+    fun searchTeamByName(teamName: String) : String {
+        val uri = Uri.parse(BuildConfig.BASE_URL).buildUpon()
+            .appendPath(BuildConfig.TSDB_API_KEY)
+            .appendPath("searchteams.php")
+            .appendQueryParameter("t", teamName)
+            .build()
+            .toString()
+
+        Log.d("URI searchTeamByName", uri)
+        return uri
+    }
+
 }

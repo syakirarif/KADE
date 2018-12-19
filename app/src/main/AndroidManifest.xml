@@ -14,12 +14,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".activity.MainActivity"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
                 android:name=".activity.DetailActivity"
-                android:parentActivityName=".activity.MainActivity"/>
+                android:parentActivityName=".activity.Main2Activity"/>
         <activity
                 android:name=".activity.SplashActivity"
                 android:theme="@style/AppTheme.NoActionBar">
@@ -39,9 +35,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.PlayerDetailActivity">
+        <activity
+                android:name=".activity.PlayerDetailActivity"
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".activity.TeamDetail2Activity">
+        <activity
+                android:name=".activity.TeamDetail2Activity">
         </activity>
     </application>
 

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="item_offset">2dp</dimen>
+    <dimen name="default_margin">32dp</dimen>
+    <dimen name="circles_size">24dp</dimen>
 </resources>

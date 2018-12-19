@@ -15,8 +15,6 @@ class AppPreferences(private val context: Context?) {
     private val KEY_REGION = "us"
 
     private val KEY_LEAGUE = "league"
-    private val KEY_CHOOSEN_TEAM_ID = "team"
-    private val KEY_CHOOSEN_PLAYER_ID = "player"
 
     private val prefs: SharedPreferences
 
@@ -27,14 +25,20 @@ class AppPreferences(private val context: Context?) {
         editor.apply()
     }
 
-    fun setTeamChoice(teamId: String?){
+    fun setPastFragment(input: Boolean?){
         val editor = prefs.edit()
-        editor.putString(KEY_CHOOSEN_TEAM_ID, teamId)
+        val key = context!!.resources.getString(R.string.pref_fragment)
+        editor.putBoolean(key, input!!)
         editor.apply()
     }
 
     fun getFirstRun(): Boolean {
         val key = context!!.resources.getString(R.string.pref_movies)
+        return prefs.getBoolean(key, true)
+    }
+
+    fun getPastFragment(): Boolean {
+        val key = context!!.resources.getString(R.string.pref_fragment)
         return prefs.getBoolean(key, true)
     }
 
@@ -44,17 +48,7 @@ class AppPreferences(private val context: Context?) {
         editor.apply()
     }
 
-    fun setPlayerChoosen(playerId: String?){
-        val editor = prefs.edit()
-        editor.putString(KEY_CHOOSEN_PLAYER_ID, playerId)
-        editor.apply()
-    }
-
     fun getLeagueFavorite(): String {return prefs.getString(KEY_LEAGUE, null)}
-
-    fun getTeamChoice(): String {return prefs.getString(KEY_CHOOSEN_TEAM_ID, null)}
-
-    fun getPlayerChoosen(): String {return prefs.getString(KEY_CHOOSEN_PLAYER_ID, null)}
 
     init {
         val PREF_NAME = "movie_pref"

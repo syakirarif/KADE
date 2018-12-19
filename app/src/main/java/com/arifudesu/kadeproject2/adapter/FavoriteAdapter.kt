@@ -7,12 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.api.ApiRepository
-import com.arifudesu.kadeproject2.model.Event
-import com.arifudesu.kadeproject2.model.Favorite
-import com.arifudesu.kadeproject2.model.Team
-import com.arifudesu.kadeproject2.presenter.DetailPresenter
+import com.arifudesu.kadeproject2.model.*
+import com.arifudesu.kadeproject2.presenter.AppPresenter
 import com.arifudesu.kadeproject2.util.DateConverter
-import com.arifudesu.kadeproject2.view.DetailView
+import com.arifudesu.kadeproject2.view.AppView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
@@ -25,8 +23,8 @@ import kotlinx.android.synthetic.main.list_content_card.view.*
  */
 class FavoriteAdapter(
     private val context: Context?,
-    private val items: List<Favorite>,
-    private val listener: (Favorite) -> Unit
+    private val items: List<FavoriteEvent>,
+    private val listener: (FavoriteEvent) -> Unit
 ) : RecyclerView.Adapter<FavoriteViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int) =
         FavoriteViewHolder(
@@ -39,17 +37,17 @@ class FavoriteAdapter(
 
     override fun getItemCount(): Int = items.size
 
-    override fun onBindViewHolder(p0: FavoriteViewHolder, p1: Int) {
-        p0.bindItem(items[p1], listener)
+    override fun onBindViewHolder(viewHolder: FavoriteViewHolder, position: Int) {
+        viewHolder.bindItem(context, items[position], listener)
     }
 }
 
 class FavoriteViewHolder(
     override val containerView: View
 ) : RecyclerView.ViewHolder(containerView),
-    LayoutContainer, DetailView {
+    LayoutContainer, AppView {
 
-    private lateinit var presenter: DetailPresenter
+    private lateinit var presenter: AppPresenter
 
     override fun showBadgeTeamHome(badgeTeam: List<Team>) {
         Picasso.get()
@@ -94,10 +92,10 @@ class FavoriteViewHolder(
 
     }
 
-    fun bindItem(items: Favorite, listener: (Favorite) -> Unit) {
+    fun bindItem(context: Context?, items: FavoriteEvent, listener: (FavoriteEvent) -> Unit) {
         val request = ApiRepository()
         val gson = Gson()
-        presenter = DetailPresenter(this, request, gson)
+        presenter = AppPresenter(this, request, gson, context)
 
         presenter.getTeamHomeDetail(items.teamHomeId)
         presenter.getTeamAwayDetail(items.teamAwayId)
@@ -107,5 +105,15 @@ class FavoriteViewHolder(
             listener(items)
         }
     }
+
+    override fun showEventList(data: List<Event>) {}
+
+    override fun showPlayerList(list: List<Player>?) {}
+
+    override fun showFavoriteList(data: List<FavoriteEvent>) {}
+
+    override fun listPlayer(players: List<Player>?) {}
+
+    override fun listTeam(teams: List<Team>?) {}
 
 }

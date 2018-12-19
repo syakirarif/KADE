@@ -6,17 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.arifudesu.kadeproject2.R
+import com.arifudesu.kadeproject2.activity.DetailActivity
 import com.arifudesu.kadeproject2.api.ApiRepository
 import com.arifudesu.kadeproject2.model.Event
+import com.arifudesu.kadeproject2.model.FavoriteEvent
+import com.arifudesu.kadeproject2.model.Player
 import com.arifudesu.kadeproject2.model.Team
-import com.arifudesu.kadeproject2.presenter.DetailPresenter
+import com.arifudesu.kadeproject2.presenter.AppPresenter
 import com.arifudesu.kadeproject2.util.DateConverter
-import com.arifudesu.kadeproject2.view.DetailView
+import com.arifudesu.kadeproject2.view.AppView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_content_card.*
 import kotlinx.android.synthetic.main.list_content_card.view.*
+import org.jetbrains.anko.startActivity
 
 /**
  * </> with <3 by SyakirArif
@@ -24,8 +28,7 @@ import kotlinx.android.synthetic.main.list_content_card.view.*
  */
 class EventAdapter(
     private val items: List<Event>,
-    private val context: Context?,
-    private val listener: (Event) -> Unit
+    private val context: Context?
 ) : RecyclerView.Adapter<EventViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int) =
@@ -40,16 +43,28 @@ class EventAdapter(
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(parent: EventViewHolder, position: Int) {
-        parent.bindItem(items[position], listener)
+
+        val item: Event = items[position]
+
+        parent.bindItem(context, item)
+        parent.itemView.setOnClickListener {
+            context!!.startActivity<DetailActivity>(
+                    "eventId" to item.eventId,
+                    "eventName" to item.eventName,
+                    "teamHomeId" to item.teamHomeId,
+                    "teamAwayId" to item.teamAwayId
+                )
+
+        }
     }
 }
 
 class EventViewHolder(
     override val containerView: View
 ) : RecyclerView.ViewHolder(containerView),
-    LayoutContainer, DetailView {
+    LayoutContainer, AppView {
 
-    private lateinit var presenter: DetailPresenter
+    private lateinit var presenter: AppPresenter
 
     override fun showBadgeTeamHome(badgeTeam: List<Team>) {
         Picasso.get()
@@ -92,20 +107,26 @@ class EventViewHolder(
         }
     }
 
-
-    fun bindItem(items: Event, listener: (Event) -> Unit) {
+    fun bindItem(context: Context?, items: Event) {
 
         val request = ApiRepository()
         val gson = Gson()
-        presenter = DetailPresenter(this, request, gson)
+        presenter = AppPresenter(this, request, gson, context)
 
         presenter.getTeamHomeDetail(items.teamHomeId)
         presenter.getTeamAwayDetail(items.teamAwayId)
         presenter.getEventDetail(items.eventId)
 
-        itemView.setOnClickListener {
-            listener(items)
-        }
     }
+
+    override fun showEventList(data: List<Event>) {}
+
+    override fun showPlayerList(list: List<Player>?) {}
+
+    override fun showFavoriteList(data: List<FavoriteEvent>) {}
+
+    override fun listPlayer(players: List<Player>?) {}
+
+    override fun listTeam(teams: List<Team>?) {}
 
 }

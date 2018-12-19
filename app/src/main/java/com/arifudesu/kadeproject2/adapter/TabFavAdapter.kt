@@ -1,22 +1,20 @@
 package com.arifudesu.kadeproject2.adapter
 
-import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.arifudesu.kadeproject2.fragment.NextEventFragment
-import com.arifudesu.kadeproject2.fragment.PastEventFragment
+import com.arifudesu.kadeproject2.fragment.FavoriteEventFragment
+import com.arifudesu.kadeproject2.fragment.FavoriteTeamFragment
 
-class MatchTabAdapter (fm: FragmentManager) :
+class TabFavAdapter (fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
-
 
 
     override fun getItem(position: Int): Fragment? {
 
         return when (position) {
-            0 -> PastEventFragment()
-            else -> NextEventFragment()
+            0 -> FavoriteEventFragment()
+            else -> FavoriteTeamFragment()
         }
     }
 
@@ -26,9 +24,9 @@ class MatchTabAdapter (fm: FragmentManager) :
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position){
-            0 -> "Past Match"
+            0 -> "Event"
             else -> {
-                return "Next Match"
+                return "Team"
             }
         }
     }
