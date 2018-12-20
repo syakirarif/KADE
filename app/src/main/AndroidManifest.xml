@@ -14,19 +14,20 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".activity.DetailActivity"
-                android:parentActivityName=".activity.Main2Activity"/>
+                android:name=".activity.SettingsActivity"
+                android:label="@string/settings"
+                android:theme="@style/AppTheme" />
         <activity
-                android:name=".activity.SplashActivity"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+                android:name=".activity.DetailActivity"
+                android:parentActivityName=".activity.MainActivity"/>
+
         <activity
                 android:name=".activity.SetupActivity"
                 android:noHistory="true"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-                android:name=".activity.Main2Activity"
+                android:name=".activity.MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
@@ -40,7 +41,7 @@
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-                android:name=".activity.TeamDetail2Activity">
+                android:name=".activity.TeamDetailActivity">
         </activity>
     </application>
 

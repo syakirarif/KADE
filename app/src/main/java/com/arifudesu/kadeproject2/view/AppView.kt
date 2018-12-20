@@ -2,6 +2,11 @@ package com.arifudesu.kadeproject2.view
 
 import com.arifudesu.kadeproject2.model.*
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 interface AppView {
     fun showEventList(data: List<Event>)
     fun showBadgeTeamHome(badgeTeam: List<Team>)

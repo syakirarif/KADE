@@ -3,6 +3,11 @@ package com.arifudesu.kadeproject2.model
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 @Parcelize
 data class FavoriteTeam(
     val id: Long?,

@@ -78,15 +78,6 @@ object TheSportsDBApi {
         return uri
     }
 
-    fun getPlayerDetail(playerId: String?) : String {
-        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
-            .appendPath(BuildConfig.TSDB_API_KEY)
-            .appendPath("lookupplayer.php")
-            .appendQueryParameter("id", playerId)
-            .build()
-            .toString()
-    }
-
     fun searchPlayer(playerName: String) : String {
         val uri = Uri.parse(BuildConfig.BASE_URL).buildUpon()
             .appendPath(BuildConfig.TSDB_API_KEY)

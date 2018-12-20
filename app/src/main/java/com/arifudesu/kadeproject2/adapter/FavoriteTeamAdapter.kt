@@ -8,12 +8,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.arifudesu.kadeproject2.R
-import com.arifudesu.kadeproject2.activity.TeamDetail2Activity
+import com.arifudesu.kadeproject2.activity.TeamDetailActivity
 import com.arifudesu.kadeproject2.model.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_club.*
 import org.jetbrains.anko.startActivity
+
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
 
 class FavoriteTeamAdapter (
     private val context: Context?,
@@ -43,7 +48,7 @@ class FavoriteTeamAdapter (
         viewHolder.name.text = item.teamName
 
         viewHolder.itemView.setOnClickListener {
-            context!!.startActivity<TeamDetail2Activity>(
+            context!!.startActivity<TeamDetailActivity>(
                 "teamId" to item.teamId,
                 "teamName" to item.teamName
             )

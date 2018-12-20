@@ -12,40 +12,119 @@
                   android:padding="4dp"
                   android:orientation="vertical">
 
-        <TextView
-                android:id="@+id/frag1_tv_name"
-                android:layout_width="wrap_content"
+        <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lorem"
-                android:fontFamily="@font/boogaloo"
-                android:textSize="22sp"/>
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="32dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/just_an_image"
+                    android:src="@drawable/ic_team_black"/>
+
+            <TextView
+                    android:id="@+id/frag1_tv_name"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lorem"
+                    android:fontFamily="@font/boogaloo"
+                    android:textSize="22sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/just_an_image"
+                    android:src="@drawable/ic_stadium_black"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/frag1_tv_stadium"
+                    android:fontFamily="@font/imprima"
+                    android:text="@string/lorem"
+                    android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/just_an_image"
+                    android:src="@drawable/ic_location_on_black_24dp"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/frag1_tv_stadium_location"
+                    android:fontFamily="@font/imprima"
+                    android:text="@string/lorem"
+                    android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/just_an_image"
+                    android:src="@drawable/ic_pennant_black"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/frag1_tv_year"
+                    android:fontFamily="@font/secular_one"
+                    android:textSize="18sp"
+                    android:text="@string/lorem"/>
+
+        </LinearLayout>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_margin="8dp"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
 
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/frag1_tv_stadium"
-                android:fontFamily="@font/imprima"
-                android:text="@string/lorem"
-                android:textSize="18sp"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/frag1_tv_stadium_location"
-                android:fontFamily="@font/imprima"
-                android:text="@string/lorem"
-                android:textSize="18sp"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/frag1_tv_year"
-                android:fontFamily="@font/secular_one"
-                android:textSize="18sp"
-                android:text="@string/lorem"/>
-
-        <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:padding="8dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/frag1_tv_desc"
                 android:text="@string/lorem"

@@ -6,10 +6,14 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.model.Team
 import kotlinx.android.synthetic.main.fragment_team_detail1.view.*
+
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
 
 class TeamDetail1Fragment : Fragment() {
 

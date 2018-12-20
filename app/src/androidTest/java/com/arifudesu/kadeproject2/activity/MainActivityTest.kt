@@ -19,10 +19,18 @@ class MainActivityTest {
 
     @Rule
     @JvmField
-    var activityRule = ActivityTestRule(Main2Activity::class.java)
+    var activityRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
     fun testPastEvent(){
+
+        //memastikan bahwa toolbar dengan id: btm_navigation sudah ditampilkan
+        onView(withId(btm_navigation))
+            .check(matches(isDisplayed()))
+
+        //klik menu toolbar "MATCH"
+        onView(withId(btm_match))
+            .perform(click())
 
         //menunggu 5 detik
         try {
@@ -32,7 +40,7 @@ class MainActivityTest {
         }
 
         //klik menu toolbar "PAST EVENT"
-        onView(withText("PAST EVENT"))
+        onView(withText("PAST MATCH"))
             .perform(click())
 
         //memastikan bahwa rv_list_past sudah ditampilkan
@@ -70,12 +78,12 @@ class MainActivityTest {
     @Test
     fun testFavorite(){
 
-        //memastikan bahwa toolbar dengan id: tab_layout sudah ditampilkan
-        onView(withId(navigation))
+        //memastikan bahwa toolbar dengan id: btm_navigation sudah ditampilkan
+        onView(withId(btm_navigation))
             .check(matches(isDisplayed()))
 
         //klik menu toolbar "FAVORITE"
-        onView(withText("FAVORITE"))
+        onView(withId(btm_favorite))
             .perform(click())
 
         //menunggu 5 detik
@@ -116,12 +124,20 @@ class MainActivityTest {
     @Test
     fun testNextEvent(){
 
+        //memastikan bahwa toolbar dengan id: btm_navigation sudah ditampilkan
+        onView(withId(btm_navigation))
+            .check(matches(isDisplayed()))
+
+        //klik menu toolbar "MATCH"
+        onView(withId(btm_match))
+            .perform(click())
+
         //memastikan bahwa toolbar dengan id: tab_layout sudah ditampilkan
-        onView(withId(navigation))
+        onView(withId(toolbar_main))
             .check(matches(isDisplayed()))
 
         //klik menu toolbar "NEXT EVENT"
-        onView(withText("NEXT EVENT"))
+        onView(withText("NEXT MATCH"))
             .perform(click())
 
         //menunggu 5 detik
@@ -159,6 +175,69 @@ class MainActivityTest {
 
         //kembali ke activity sebelumnya.
         pressBack()
+
+    }
+
+    @Test
+    fun testClubTab(){
+
+        //memastikan bahwa toolbar dengan id: btm_navigation sudah ditampilkan
+        onView(withId(btm_navigation))
+            .check(matches(isDisplayed()))
+
+        //klik menu "CLUB"
+        onView(withId(btm_club))
+            .perform(click())
+
+        //menunggu 5 detik
+        try {
+            Thread.sleep(5000)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
+
+        //memastikan bahwa rv_club sudah ditampilkan
+        onView(withId(rv_club))
+            .check(matches(isDisplayed()))
+
+        //scroll rv_club ke posisi 5
+        onView(withId(rv_club))
+            .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(5))
+
+        //klik item di posisi 5
+        onView(withId(rv_club))
+            .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(5, click()))
+
+        //menunggu 5 detik
+        try {
+            Thread.sleep(5000)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
+
+        //memastikan bahwa menu dengan id: add_to_favorite sudah ditampilkan
+        onView(withId(add_to_favorite))
+            .check(matches(isDisplayed()))
+
+        //klik menu add_to_favorite
+        onView(withId(add_to_favorite)).perform(click())
+
+        //kembali ke activity sebelumnya.
+        pressBack()
+
+    }
+
+    @Test
+    fun testDiscoverTab(){
+
+        //memastikan bahwa toolbar dengan id: btm_navigation sudah ditampilkan
+        onView(withId(btm_navigation))
+            .check(matches(isDisplayed()))
+
+        //klik menu "DISCOVER"
+        onView(withId(btm_discover))
+            .perform(click())
+
 
     }
 }

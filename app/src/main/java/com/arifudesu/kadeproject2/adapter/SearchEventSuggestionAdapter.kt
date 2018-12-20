@@ -23,6 +23,11 @@ import kotlinx.android.synthetic.main.list_content_card.*
 import kotlinx.android.synthetic.main.list_content_card.view.*
 import org.jetbrains.anko.startActivity
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 class SearchEventSuggestionAdapter(
     private val context: Context?,
     inflater: LayoutInflater
@@ -35,7 +40,7 @@ class SearchEventSuggestionAdapter(
     }
 
     override fun getSingleViewHeight(): Int {
-        return 80;
+        return 80
     }
 
     override fun onBindSuggestionHolder(

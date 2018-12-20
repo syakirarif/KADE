@@ -6,6 +6,11 @@ import android.support.v4.app.FragmentPagerAdapter
 import com.arifudesu.kadeproject2.fragment.FavoriteEventFragment
 import com.arifudesu.kadeproject2.fragment.FavoriteTeamFragment
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 class TabFavAdapter (fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 

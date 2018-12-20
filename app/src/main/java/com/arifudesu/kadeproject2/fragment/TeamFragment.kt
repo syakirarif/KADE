@@ -22,7 +22,11 @@ import com.arifudesu.kadeproject2.util.ItemOffsetDecoration
 import com.arifudesu.kadeproject2.view.AppView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_club.*
-import org.jetbrains.anko.support.v4.toast
+
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
 
 class TeamFragment : Fragment(), AppView {
 
@@ -30,8 +34,6 @@ class TeamFragment : Fragment(), AppView {
     private lateinit var presenter: AppPresenter
 
     private var items: MutableList<Team> = mutableListOf()
-
-    private lateinit var leagueId: String
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -59,9 +61,9 @@ class TeamFragment : Fragment(), AppView {
         val gson = Gson()
 
         val pref = AppPreferences(context)
-        leagueId = pref.getLeagueFavorite()
+        val leagueId = pref.getLeagueFavorite()
 
-        presenter = AppPresenter(this, apiRepository, gson, context)
+        presenter = AppPresenter(this, apiRepository, gson)
         presenter.getClubList(leagueId)
         return view
     }
@@ -69,8 +71,7 @@ class TeamFragment : Fragment(), AppView {
     override fun listTeam(teams: List<Team>?) {
         items.clear()
         //items.addAll(teams)
-        if (teams != null)
-            teams.let { items.addAll(it) }
+        teams?.let { items.addAll(it) }
         adapter.notifyDataSetChanged()
     }
 

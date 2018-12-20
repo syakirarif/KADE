@@ -14,7 +14,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.arifudesu.kadeproject2.R
-import com.arifudesu.kadeproject2.activity.DetailActivity
 import com.arifudesu.kadeproject2.adapter.*
 import com.arifudesu.kadeproject2.api.ApiRepository
 import com.arifudesu.kadeproject2.model.Event
@@ -22,29 +21,24 @@ import com.arifudesu.kadeproject2.model.FavoriteEvent
 import com.arifudesu.kadeproject2.model.Player
 import com.arifudesu.kadeproject2.model.Team
 import com.arifudesu.kadeproject2.presenter.AppPresenter
-import com.arifudesu.kadeproject2.presenter.DiscoverPresenter
 import com.arifudesu.kadeproject2.util.AppPreferences
 import com.arifudesu.kadeproject2.view.AppView
-import com.arifudesu.kadeproject2.view.DiscoverView
 import com.google.gson.Gson
 import com.jaredrummler.materialspinner.MaterialSpinner
 import com.mancj.materialsearchbar.MaterialSearchBar
-import kotlinx.android.synthetic.main.fragment_discover.*
-import org.jetbrains.anko.find
-import org.jetbrains.anko.singleTop
-import org.jetbrains.anko.support.v4.intentFor
-import java.net.URI
-import java.net.URISyntaxException
+
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
 
 class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionListener {
 
     private lateinit var spinnerEvent: MaterialSpinner
-    private lateinit var spinnerTeam: MaterialSpinner
 
     private lateinit var searchBar: MaterialSearchBar
 
     private lateinit var searchEventSuggestion: SearchEventSuggestionAdapter
-    private lateinit var searchPlayerSuggestion: SearchPlayerSuggestionAdapter
 
     private lateinit var presenter: AppPresenter
 
@@ -59,15 +53,12 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
     private var itemsPlayer: MutableList<Player> = mutableListOf()
     private var itemsTeam: MutableList<Team> = mutableListOf()
 
-    private var teamName = ArrayList<String>()
-    private var teamId = ArrayList<String>()
-
     private var isSearchPastEvent: Boolean = true
     private var isSearchNextEvent: Boolean = false
     private var isSearchPlayer: Boolean = false
     private var isSearchTeam: Boolean = false
 
-    //private var searching: String = ""
+    private var leagueId: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -81,15 +72,15 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
 
         val inflater: LayoutInflater = activity!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         searchEventSuggestion = SearchEventSuggestionAdapter(context, inflater)
-        searchPlayerSuggestion = SearchPlayerSuggestionAdapter(itemsPlayer, inflater)
+
+        val pref = AppPreferences(context)
+        leagueId = pref.getLeagueFavorite()
 
         val request = ApiRepository()
         val gson = Gson()
-        presenter = AppPresenter(this, request, gson, context)
-        //presenter.getPastEventList()
+        presenter = AppPresenter(this, request, gson)
 
         spinnerEvent = view.findViewById(R.id.spinner_discover)
-        spinnerTeam = view.findViewById(R.id.spinner_discover_team)
 
         spinnerEvent.setItems("Past Match", "Next Match", "Player", "Team")
         spinnerEvent.setOnItemSelectedListener(object : MaterialSpinner.OnItemSelectedListener<String> {
@@ -102,12 +93,7 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
                     isSearchPlayer = false
                     isSearchTeam = false
 
-                    //spinner_discover_team.visibility = View.GONE
-
-                    //searchEventSuggestion.suggestions = itemsEvent
-
-                    presenter.getPastEventList()
-                    //searching = "past"
+                    presenter.getPastEventList(leagueId)
                     searchBarEvent()
 
                 } else if (item == "Next Match") {
@@ -118,11 +104,7 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
                     isSearchPlayer = false
                     isSearchTeam = false
 
-                    //spinner_discover_team.visibility = View.GONE
-
-                    //searchEventSuggestion.suggestions = itemsEvent
-                    presenter.getNextEventList()
-                    //searching = "next"
+                    presenter.getNextEventList(leagueId)
                     searchBarEvent()
 
                 } else if (item == "Player") {
@@ -133,18 +115,6 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
                     isSearchPlayer = true
                     isSearchTeam = false
 
-                    //spinnerTeam.visibility = View.VISIBLE
-
-                    //val pref = AppPreferences(context)
-                    //val leagueId = pref.getLeagueFavorite()
-
-                    //presenter.getClubList(leagueId)
-                    //Log.d("getClubList", leagueId)
-
-                    //spinnerTeam.setItems(teamName)
-                    //searchPlayerSuggestion = SearchPlayerSuggestionAdapter(inflater)
-                    //searchPlayerSuggestion.suggestions = itemsPlayer
-                    //searching = "player"
                     searchBarPlayer()
                 } else if (item == "Team") {
 
@@ -153,21 +123,9 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
                     isSearchPlayer = false
                     isSearchTeam = true
 
-                    //searching = "team"
                     searchBarTeam()
 
                 }
-            }
-
-        })
-
-        spinnerTeam.setOnItemSelectedListener(object :
-            MaterialSpinner.OnItemSelectedListener<String> {
-            override fun onItemSelected(view: MaterialSpinner?, position: Int, id: Long, item: String?) {
-                //presenter.getPlayerList(teamId[position])
-                //Log.d("teamIdChoosen", teamId[position])
-                searchPlayerSuggestion.suggestions = itemsPlayer
-                searchBarPlayer()
             }
 
         })
@@ -176,11 +134,9 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
         searchBar.setSpeechMode(false)
         searchBar.setOnSearchActionListener(this)
 
-        //searchBarEvent()
 
         if (isSearchPastEvent) {
-            //searchEventSuggestion.suggestions = itemsEvent
-            presenter.getPastEventList()
+            presenter.getPastEventList(leagueId)
             searchBarEvent()
         }
 
@@ -234,7 +190,6 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
 
     override fun showPlayerList(list: List<Player>?) {
         itemsPlayer.clear()
-        //itemsPlayer.addAll(players!!)
         if (list != null) {
             list.let { itemsPlayer.addAll(it) }
             rvSearch.visibility = View.VISIBLE
@@ -245,7 +200,6 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
             tvNotice.text = resources.getString(R.string.result_not_found)
         }
 
-        searchPlayerSuggestion.notifyDataSetChanged()
         adapterPlayer.notifyDataSetChanged()
     }
 
@@ -259,7 +213,6 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
 
     override fun listPlayer(players: List<Player>?) {
         itemsPlayer.clear()
-        //itemsPlayer.addAll(players!!)
         if (players != null) {
             players.let { itemsPlayer.addAll(it) }
             rvSearch.visibility = View.VISIBLE
@@ -269,7 +222,6 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
             tvNotice.visibility = View.VISIBLE
             tvNotice.text = resources.getString(R.string.result_not_found)
         }
-        searchPlayerSuggestion.notifyDataSetChanged()
     }
 
     override fun listTeam(teams: List<Team>?) {
@@ -296,20 +248,6 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
         val searchQuery: String = text.toString()
         //searchQuery = searchQuery.replace(" ", "%20")
 
-        /*if (searching == "past") {
-            //presenter.getPastEventList()
-            rvSearch.adapter = adapterEvent
-        } else if (searching == "next") {
-            //presenter.getNextEventList()
-            rvSearch.adapter = adapterEvent
-        } else if (searching == "player") {
-            presenter.searchPlayer(searchQuery)
-            rvSearch.adapter = adapterPlayer
-        } else if (searching == "team") {
-            presenter.searchTeamByName(searchQuery)
-            rvSearch.adapter = adapterTeam
-        }*/
-
         if (isSearchPlayer) {
             presenter.searchPlayer(searchQuery)
             rvSearch.adapter = adapterPlayer
@@ -319,13 +257,6 @@ class DiscoverFragment : Fragment(), AppView, MaterialSearchBar.OnSearchActionLi
         } else {
             rvSearch.adapter = adapterEvent
         }
-
-        //val inflater: LayoutInflater = activity!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        //searchPlayerSuggestion = SearchPlayerSuggestionAdapter(itemsPlayer, inflater)
-        // searchBar.setCustomSuggestionAdapter(searchPlayerSuggestion)
-
-        //searchPlayerSuggestion.suggestions = itemsPlayer
-        //searchPlayerSuggestion.filter.filter(text.toString())
     }
 
 }

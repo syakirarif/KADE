@@ -22,6 +22,11 @@ import org.jetbrains.anko.db.select
 import org.jetbrains.anko.singleTop
 import org.jetbrains.anko.support.v4.intentFor
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 class FavoriteEventFragment : Fragment(), AppView {
 
     private lateinit var adapter: FavoriteAdapter

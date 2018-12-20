@@ -12,6 +12,11 @@ import android.view.ViewGroup
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.adapter.TabFavAdapter
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 class FavFragment : Fragment() {
 
     private lateinit var viewPager: ViewPager

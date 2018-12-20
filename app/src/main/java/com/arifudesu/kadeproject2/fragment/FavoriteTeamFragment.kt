@@ -10,17 +10,19 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.adapter.FavoriteTeamAdapter
-import com.arifudesu.kadeproject2.adapter.TeamAdapter
 import com.arifudesu.kadeproject2.model.FavoriteTeam
 import com.arifudesu.kadeproject2.util.ItemOffsetDecoration
 import kotlinx.android.synthetic.main.fragment_favorite_team.*
-import org.jetbrains.anko.support.v4.toast
 import com.arifudesu.kadeproject2.db.database
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
+
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
 
 class FavoriteTeamFragment : Fragment() {
 
@@ -59,8 +61,7 @@ class FavoriteTeamFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_favorite_team, container, false)
-        return view
+        return inflater.inflate(R.layout.fragment_favorite_team, container, false)
     }
 
     private fun showFavorite() {

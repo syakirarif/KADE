@@ -20,6 +20,11 @@ import com.arifudesu.kadeproject2.view.AppView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_team_detail2.*
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 class TeamDetail2Fragment : Fragment(), AppView {
 
     private var items: MutableList<Player> = mutableListOf()
@@ -63,7 +68,7 @@ class TeamDetail2Fragment : Fragment(), AppView {
         val apiRepository = ApiRepository()
         val gson = Gson()
 
-        presenter = AppPresenter(this, apiRepository, gson, context)
+        presenter = AppPresenter(this, apiRepository, gson)
         presenter.getPlayerList(data.teamId)
 
         return view

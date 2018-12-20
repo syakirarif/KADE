@@ -11,9 +11,6 @@ import com.arifudesu.kadeproject2.R
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class AppPreferences(private val context: Context?) {
 
-    private val KEY_LANGUAGE = "en"
-    private val KEY_REGION = "us"
-
     private val KEY_LEAGUE = "league"
 
     private val prefs: SharedPreferences
@@ -25,20 +22,8 @@ class AppPreferences(private val context: Context?) {
         editor.apply()
     }
 
-    fun setPastFragment(input: Boolean?){
-        val editor = prefs.edit()
-        val key = context!!.resources.getString(R.string.pref_fragment)
-        editor.putBoolean(key, input!!)
-        editor.apply()
-    }
-
     fun getFirstRun(): Boolean {
         val key = context!!.resources.getString(R.string.pref_movies)
-        return prefs.getBoolean(key, true)
-    }
-
-    fun getPastFragment(): Boolean {
-        val key = context!!.resources.getString(R.string.pref_fragment)
         return prefs.getBoolean(key, true)
     }
 

@@ -11,6 +11,11 @@ import com.bumptech.glide.Glide
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_league.view.*
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 class LeagueAdapter(
     private val context: Context,
     private val items: List<League>,

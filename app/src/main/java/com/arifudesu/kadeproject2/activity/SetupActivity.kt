@@ -13,6 +13,11 @@ import com.arifudesu.kadeproject2.util.ItemOffsetDecoration
 import kotlinx.android.synthetic.main.activity_setup.*
 import org.jetbrains.anko.*
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 class SetupActivity : AppCompatActivity() {
 
     private var items: MutableList<League> = mutableListOf()
@@ -40,7 +45,7 @@ class SetupActivity : AppCompatActivity() {
 
             pref.setLeagueFavorite(it.leagueId)
             pref.setFirstRun(false)
-            startActivity(intentFor<Main2Activity>().noHistory())
+            startActivity(intentFor<MainActivity>().noHistory())
 
         }
 

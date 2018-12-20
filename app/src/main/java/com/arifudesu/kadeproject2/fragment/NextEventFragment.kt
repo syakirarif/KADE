@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.arifudesu.kadeproject2.activity.DetailActivity
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.adapter.EventAdapter
 import com.arifudesu.kadeproject2.api.ApiRepository
@@ -20,9 +19,11 @@ import com.arifudesu.kadeproject2.util.AppPreferences
 import com.arifudesu.kadeproject2.view.AppView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_next_event.*
-import org.jetbrains.anko.singleTop
-import org.jetbrains.anko.support.v4.intentFor
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
 
 class NextEventFragment : Fragment(), AppView {
 
@@ -30,6 +31,8 @@ class NextEventFragment : Fragment(), AppView {
     private lateinit var presenter: AppPresenter
 
     private var items: MutableList<Event> = mutableListOf()
+
+    private var leagueId: String = ""
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -43,7 +46,9 @@ class NextEventFragment : Fragment(), AppView {
 
         swipe_next_event.setOnRefreshListener {
             swipe_next_event.isRefreshing = true
-            presenter.getNextEventList()
+            //val pref = AppPreferences(context)
+            //leagueId = pref.getLeagueFavorite()
+            presenter.getNextEventList(leagueId)
         }
 
     }
@@ -55,12 +60,12 @@ class NextEventFragment : Fragment(), AppView {
         val view = inflater.inflate(R.layout.fragment_next_event, container, false)
 
         val pref = AppPreferences(context)
-        pref.setPastFragment(false)
+        leagueId = pref.getLeagueFavorite()
 
         val request = ApiRepository()
         val gson = Gson()
-        presenter = AppPresenter(this, request, gson, this.context)
-        presenter.getNextEventList()
+        presenter = AppPresenter(this, request, gson)
+        presenter.getNextEventList(leagueId)
 
         return view
     }

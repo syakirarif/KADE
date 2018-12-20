@@ -8,6 +8,7 @@ import com.arifudesu.kadeproject2.model.Team
  * </> with <3 by SyakirArif
  * say no to plagiarism
  */
+
 interface DetailView {
     fun showBadgeTeamHome(badgeTeam: List<Team>)
     fun showBadgeTeamAway(badgeTeam: List<Team>)

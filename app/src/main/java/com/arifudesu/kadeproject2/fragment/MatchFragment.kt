@@ -11,6 +11,11 @@ import android.view.ViewGroup
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.adapter.MatchTabAdapter
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 class MatchFragment : Fragment() {
 
     private lateinit var viewPager: ViewPager

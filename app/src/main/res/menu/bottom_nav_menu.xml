@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
             android:id="@+id/btm_match"
             android:icon="@drawable/ic_action_name"
-            android:title="MATCH"/>
+            android:title="@string/match"/>
 
     <item android:id="@+id/btm_club"
-          android:icon="@drawable/ic_clubs"
-          android:title="CLUB"/>
+          android:icon="@drawable/ic_soccer_ball"
+          android:title="@string/club"/>
 
     <item android:id="@+id/btm_favorite"
           android:icon="@drawable/ic_favorite_red_24dp"
-          android:title="FAVORITE"/>
+          android:title="@string/favorite"/>
 
     <item android:id="@+id/btm_discover"
           android:icon="@drawable/ic_explore_white_24dp"
-          android:title="DISCOVER"/>
+          android:title="@string/discover"/>
 
 
 </menu>

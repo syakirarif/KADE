@@ -1,14 +1,12 @@
 package com.arifudesu.kadeproject2.activity
 
 import android.content.Context
-import android.content.DialogInterface
 import android.database.sqlite.SQLiteConstraintException
 import android.net.ConnectivityManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.content.ContextCompat
-import android.support.v7.app.ActionBar
 import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.Menu
@@ -20,7 +18,6 @@ import com.arifudesu.kadeproject2.R.id.add_to_favorite
 import com.arifudesu.kadeproject2.R.menu.detail_menu
 import com.arifudesu.kadeproject2.adapter.TabTeamDetailAdapter
 import com.arifudesu.kadeproject2.api.ApiRepository
-import com.arifudesu.kadeproject2.util.AppPreferences
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_team_detail2.*
 import com.arifudesu.kadeproject2.db.database
@@ -34,7 +31,12 @@ import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.toast
 
-class TeamDetail2Activity : AppCompatActivity(), AppView {
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
+class TeamDetailActivity : AppCompatActivity(), AppView {
 
     private lateinit var team: Team
     //private lateinit var actionBar: ActionBar
@@ -66,13 +68,13 @@ class TeamDetail2Activity : AppCompatActivity(), AppView {
         teamName = intent.getStringExtra("teamName")
 
         setTitle(teamName)
-        actionBar?.setHomeButtonEnabled(true);
+        actionBar?.setHomeButtonEnabled(true)
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
         favoriteState()
         val request = ApiRepository()
         val gson = Gson()
-        presenter = AppPresenter(this, request, gson, this)
+        presenter = AppPresenter(this, request, gson)
         presenter.getTeamDetail(teamId)
 
 
@@ -179,7 +181,7 @@ class TeamDetail2Activity : AppCompatActivity(), AppView {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(title)
         builder.setMessage(message)
-        builder.setNeutralButton("OK", DialogInterface.OnClickListener { dialog, id ->
+        builder.setNeutralButton("OK", { dialog, id ->
             dialog.dismiss()
         })
 

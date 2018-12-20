@@ -17,10 +17,15 @@ import com.arifudesu.kadeproject2.model.Player
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_player_detail.*
-import com.applikeysolutions.animation.BlurAnimation;
-import com.applikeysolutions.animation.orionpreview.ScaleAnimation;
-import com.applikeysolutions.animation.orionpreview.TranslationAnimation;
+import com.applikeysolutions.animation.BlurAnimation
+import com.applikeysolutions.animation.orionpreview.ScaleAnimation
+import com.applikeysolutions.animation.orionpreview.TranslationAnimation
 import kotlinx.android.synthetic.main.player_detail_card.*
+
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
 
 class PlayerDetailActivity : AppCompatActivity() {
 
@@ -86,8 +91,8 @@ class PlayerDetailActivity : AppCompatActivity() {
             removeBlur()
         }
 
-        getScreenSize();
-        setPlayerBottomMargin();
+        getScreenSize()
+        setPlayerBottomMargin()
         initAnimation()
     }
 
@@ -135,9 +140,11 @@ class PlayerDetailActivity : AppCompatActivity() {
                 .build()
 
             blurAnimation = BlurAnimation.BlurAnimationBuilder(0.4f, 7f).build()
-            Log.d("URLplayerThumb", list.playerThumb?.trim())
+            //Log.d("URLplayerThumb", list.playerThumb?.trim())
 
-            Picasso.get().load(list.playerThumb?.trim()).into(object : com.squareup.picasso.Target {
+            Picasso.get()
+                .load(list.playerThumb?.trim())
+                .into(object : com.squareup.picasso.Target {
                 override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
                     originalBitmap = bitmap
                 }

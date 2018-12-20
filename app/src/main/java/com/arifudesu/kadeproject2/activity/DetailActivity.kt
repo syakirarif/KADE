@@ -1,7 +1,6 @@
 package com.arifudesu.kadeproject2.activity
 
 import android.content.Context
-import android.content.DialogInterface
 import android.database.sqlite.SQLiteConstraintException
 import android.graphics.Color
 import android.net.ConnectivityManager
@@ -35,6 +34,10 @@ import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.toast
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
 
 class DetailActivity : AppCompatActivity(), AppView {
 
@@ -70,7 +73,7 @@ class DetailActivity : AppCompatActivity(), AppView {
         favoriteState()
         val request = ApiRepository()
         val gson = Gson()
-        presenter = AppPresenter(this, request, gson, this)
+        presenter = AppPresenter(this, request, gson)
 
         presenter.getTeamHomeDetail(teamHomeId)
         presenter.getTeamAwayDetail(teamAwayId)

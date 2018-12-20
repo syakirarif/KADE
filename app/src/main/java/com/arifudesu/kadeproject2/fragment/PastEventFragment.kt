@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.arifudesu.kadeproject2.activity.DetailActivity
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.adapter.EventAdapter
 import com.arifudesu.kadeproject2.api.ApiRepository
@@ -21,8 +20,11 @@ import com.arifudesu.kadeproject2.util.AppPreferences
 import com.arifudesu.kadeproject2.view.AppView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_past_event.*
-import org.jetbrains.anko.singleTop
-import org.jetbrains.anko.support.v4.intentFor
+
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
 
 class PastEventFragment : Fragment(), AppView {
 
@@ -30,6 +32,8 @@ class PastEventFragment : Fragment(), AppView {
     private lateinit var presenter: AppPresenter
 
     private var items: MutableList<Event> = mutableListOf()
+
+    private var leagueId: String = ""
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
 
@@ -46,7 +50,7 @@ class PastEventFragment : Fragment(), AppView {
 
         swipe_past_event.setOnRefreshListener {
             swipe_past_event.isRefreshing = true
-            presenter.getPastEventList()
+            presenter.getPastEventList(leagueId)
         }
     }
 
@@ -57,13 +61,13 @@ class PastEventFragment : Fragment(), AppView {
         val view = inflater.inflate(R.layout.fragment_past_event, container, false)
 
         val pref = AppPreferences(context)
-        pref.setPastFragment(true)
+        leagueId = pref.getLeagueFavorite()
 
         val request = ApiRepository()
         val gson = Gson()
-        presenter = AppPresenter(this, request, gson, this.context)
+        presenter = AppPresenter(this, request, gson)
 
-        presenter.getPastEventList()
+        presenter.getPastEventList(leagueId)
 
         return view
     }

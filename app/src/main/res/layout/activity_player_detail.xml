@@ -6,29 +6,11 @@
                 android:layout_height="match_parent"
                 tools:context=".activity.PlayerDetailActivity">
 
-    <android.support.v7.widget.Toolbar
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:theme="@style/CustomActionBar">
-
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:fontFamily="@font/imprima"
-                android:textColor="@android:color/white"
-                android:text="Player Detail"/>
-
-    </android.support.v7.widget.Toolbar>
-
     <ImageView
             android:id="@+id/img_player_thumb"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:contentDescription="@string/just_an_image"
             android:src="@drawable/img_blank_badge"
             android:scaleType="centerCrop" />
 

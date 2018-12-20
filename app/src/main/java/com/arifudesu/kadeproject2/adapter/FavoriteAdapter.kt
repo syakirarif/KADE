@@ -95,7 +95,7 @@ class FavoriteViewHolder(
     fun bindItem(context: Context?, items: FavoriteEvent, listener: (FavoriteEvent) -> Unit) {
         val request = ApiRepository()
         val gson = Gson()
-        presenter = AppPresenter(this, request, gson, context)
+        presenter = AppPresenter(this, request, gson)
 
         presenter.getTeamHomeDetail(items.teamHomeId)
         presenter.getTeamAwayDetail(items.teamAwayId)

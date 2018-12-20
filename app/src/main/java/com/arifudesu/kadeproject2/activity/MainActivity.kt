@@ -1,21 +1,29 @@
 package com.arifudesu.kadeproject2.activity
 
 import android.content.Context
-import android.content.DialogInterface
 import android.net.ConnectivityManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
+import android.support.v7.widget.Toolbar
+import android.view.Menu
+import android.view.MenuItem
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.fragment.*
 import com.arifudesu.kadeproject2.util.AppPreferences
-import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.singleTop
+import org.jetbrains.anko.startActivity
 
-class Main2Activity : AppCompatActivity() {
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
+class MainActivity : AppCompatActivity() {
 
     private lateinit var pref: AppPreferences
 
@@ -55,7 +63,10 @@ class Main2Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.activity_main)
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar_main)
+        setSupportActionBar(toolbar)
 
         pref = AppPreferences(this)
 
@@ -66,11 +77,28 @@ class Main2Activity : AppCompatActivity() {
         } else {
             checkConnection()
 
-            navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+            toolbar.inflateMenu(R.menu.main_menu)
+            toolbar.setOnMenuItemClickListener(object : Toolbar.OnMenuItemClickListener {
+                override fun onMenuItemClick(item: MenuItem?): Boolean {
+                    if (item!!.itemId == R.id.menu_settings) {
+                        startActivity<SettingsActivity>()
+                        return true
+                    }
+
+                    return false
+                }
+            })
+
+            btm_navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
             val fragment = MatchFragment()
             addFragment(fragment)
 
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
     }
 
     private fun checkConnection() {
@@ -85,7 +113,7 @@ class Main2Activity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(title)
         builder.setMessage(message)
-        builder.setNeutralButton("OK", DialogInterface.OnClickListener { dialog, id ->
+        builder.setNeutralButton("OK", { dialog, id ->
             dialog.dismiss()
         })
 

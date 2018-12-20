@@ -15,6 +15,11 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.list_player.*
 import org.jetbrains.anko.startActivity
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 class PlayerAdapter(
     private val items: List<Player>,
     private val context: Context?

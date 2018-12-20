@@ -14,17 +14,21 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+/**
+ * > with <3 by SyakirArif
+ * say no to plagiarism
+ */
+
 class AppPresenter (
     private val view: AppView,
     private val apiRepository: ApiRepository,
-    private val gson: Gson,
-    private val context: Context?
+    private val gson: Gson
 ) {
 
-    val pref = AppPreferences(context)
-    val leagueId: String = pref.getLeagueFavorite()
+    //val pref = AppPreferences(context)
+    //val leagueId: String = pref.getLeagueFavorite()
 
-    fun getPastEventList() {
+    fun getPastEventList(leagueId: String?) {
 
         GlobalScope.launch(Dispatchers.Main) {
             val data = gson.fromJson(
@@ -36,7 +40,7 @@ class AppPresenter (
         }
     }
 
-    fun getNextEventList() {
+    fun getNextEventList(leagueId: String?) {
 
         GlobalScope.launch(Dispatchers.Main) {
             val data = gson.fromJson(

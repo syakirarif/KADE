@@ -24,7 +24,7 @@
                 android:textSize="18sp"
                 android:fontFamily="@font/imprima"
                 android:textColor="@android:color/white"
-                android:text="Select Your Favorite League"/>
+                android:text="@string/select_your_favorite_league"/>
 
     </android.support.v7.widget.Toolbar>
 
