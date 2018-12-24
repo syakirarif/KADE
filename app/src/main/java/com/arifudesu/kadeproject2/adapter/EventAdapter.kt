@@ -48,7 +48,7 @@ class EventAdapter(
 
         parent.bindItem(context, item)
         parent.itemView.setOnClickListener {
-            context!!.startActivity<DetailActivity>(
+            context?.startActivity<DetailActivity>(
                     "eventId" to item.eventId,
                     "eventName" to item.eventName,
                     "teamHomeId" to item.teamHomeId,

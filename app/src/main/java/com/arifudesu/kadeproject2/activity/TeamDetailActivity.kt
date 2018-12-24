@@ -67,7 +67,7 @@ class TeamDetailActivity : AppCompatActivity(), AppView {
         teamId = intent.getStringExtra("teamId")
         teamName = intent.getStringExtra("teamName")
 
-        setTitle(teamName)
+        title = teamName
         actionBar?.setHomeButtonEnabled(true)
         actionBar?.setDisplayHomeAsUpEnabled(true)
 

@@ -3,6 +3,7 @@ package com.arifudesu.kadeproject2.model
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
+import java.text.SimpleDateFormat
 
 /**
  * </> with <3 by SyakirArif
@@ -30,6 +31,9 @@ data class Event (
 
     @SerializedName("dateEvent")
     var eventDate: String? = null,
+
+    @SerializedName("strTime")
+    var eventTime: String? = null,
 
     @SerializedName("strEvent")
     var eventName: String? = null,

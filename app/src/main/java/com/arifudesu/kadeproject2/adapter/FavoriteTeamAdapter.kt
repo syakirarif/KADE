@@ -48,7 +48,7 @@ class FavoriteTeamAdapter (
         viewHolder.name.text = item.teamName
 
         viewHolder.itemView.setOnClickListener {
-            context!!.startActivity<TeamDetailActivity>(
+            context?.startActivity<TeamDetailActivity>(
                 "teamId" to item.teamId,
                 "teamName" to item.teamName
             )

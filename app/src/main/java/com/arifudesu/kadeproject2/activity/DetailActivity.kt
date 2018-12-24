@@ -33,6 +33,8 @@ import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.toast
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * > with <3 by SyakirArif
@@ -106,6 +108,8 @@ class DetailActivity : AppCompatActivity(), AppView {
             data[0].scoreAway,
 
             data[0].eventDate,
+            data[0].eventTime,
+
             data[0].eventName,
             data[0].leagueName,
 
@@ -131,8 +135,13 @@ class DetailActivity : AppCompatActivity(), AppView {
             data[0].cardRedHome
         )
 
-        if (event.eventDate != null)
-            tv_event_date.text = DateConverter.getLongDate(event.eventDate)
+        if (event.eventDate != null){
+
+            val convertedDate = toGMTFormat(event.eventDate, event.eventTime)
+
+            //tv_event_date.text = DateConverter.getLongDate(event.eventDate)
+            tv_event_date.text = convertedDate.toString()
+        }
 
         tv_team_home.text = event.teamHome
         tv_team_away.text = event.teamAway
@@ -307,4 +316,13 @@ class DetailActivity : AppCompatActivity(), AppView {
     override fun showEventList(data: List<Event>) {}
 
     override fun showFavoriteList(data: List<FavoriteEvent>) {}
+
+    private fun toGMTFormat(date: String?, time: String?) : Date? {
+        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+
+        formatter.timeZone = TimeZone.getTimeZone("UTC")
+
+        val dateTime = "$date $time"
+        return formatter.parse(dateTime)
+    }
 }

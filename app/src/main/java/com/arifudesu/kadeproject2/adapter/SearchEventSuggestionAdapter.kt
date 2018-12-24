@@ -50,7 +50,7 @@ class SearchEventSuggestionAdapter(
     ) {
         holder.bindItem(suggestion)
         holder.itemView.setOnClickListener {
-            context!!.startActivity<DetailActivity>(
+            context?.startActivity<DetailActivity>(
                 "eventId" to suggestion.eventId,
                 "eventName" to suggestion.eventName,
                 "teamHomeId" to suggestion.teamHomeId,

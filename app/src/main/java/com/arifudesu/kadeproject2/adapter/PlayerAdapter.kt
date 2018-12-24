@@ -44,7 +44,7 @@ class PlayerAdapter(
 
         Picasso.get()
             .load(item.playerPhoto?.trim())
-            .placeholder(R.drawable.img_blank_badge)
+            .placeholder(R.drawable.img_blank_photo)
             .into(viewHolder.image)
 
         viewHolder.name.text = item.playerName
@@ -52,7 +52,7 @@ class PlayerAdapter(
         //viewHolder.bindItem(items[position])
 
         viewHolder.itemView.setOnClickListener {
-            context!!.startActivity<PlayerDetailActivity>("data" to item)
+            context?.startActivity<PlayerDetailActivity>("data" to item)
             /*val pref = AppPreferences(context)
             pref.setPlayerChoosen(items[position].playerId)*/
         }

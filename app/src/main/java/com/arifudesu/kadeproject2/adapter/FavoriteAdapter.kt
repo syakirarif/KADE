@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.arifudesu.kadeproject2.R
 import com.arifudesu.kadeproject2.api.ApiRepository
-import com.arifudesu.kadeproject2.model.*
+import com.arifudesu.kadeproject2.model.Event
+import com.arifudesu.kadeproject2.model.FavoriteEvent
+import com.arifudesu.kadeproject2.model.Player
+import com.arifudesu.kadeproject2.model.Team
 import com.arifudesu.kadeproject2.presenter.AppPresenter
 import com.arifudesu.kadeproject2.util.DateConverter
 import com.arifudesu.kadeproject2.view.AppView
@@ -38,7 +41,7 @@ class FavoriteAdapter(
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(viewHolder: FavoriteViewHolder, position: Int) {
-        viewHolder.bindItem(context, items[position], listener)
+        viewHolder.bindItem(items[position], listener)
     }
 }
 
@@ -51,16 +54,16 @@ class FavoriteViewHolder(
 
     override fun showBadgeTeamHome(badgeTeam: List<Team>) {
         Picasso.get()
-                .load(badgeTeam[0].teamBadge?.trim())
-                .placeholder(R.drawable.img_blank_badge)
-                .into(img_list_1badge)
+            .load(badgeTeam[0].teamBadge?.trim())
+            .placeholder(R.drawable.img_blank_badge)
+            .into(img_list_1badge)
     }
 
     override fun showBadgeTeamAway(badgeTeam: List<Team>) {
         Picasso.get()
-                .load(badgeTeam[0].teamBadge?.trim())
-                .placeholder(R.drawable.img_blank_badge)
-                .into(img_list_2badge)
+            .load(badgeTeam[0].teamBadge?.trim())
+            .placeholder(R.drawable.img_blank_badge)
+            .into(img_list_2badge)
     }
 
     override fun showEventDetail(data: List<Event>) {
@@ -92,7 +95,7 @@ class FavoriteViewHolder(
 
     }
 
-    fun bindItem(context: Context?, items: FavoriteEvent, listener: (FavoriteEvent) -> Unit) {
+    fun bindItem(items: FavoriteEvent, listener: (FavoriteEvent) -> Unit) {
         val request = ApiRepository()
         val gson = Gson()
         presenter = AppPresenter(this, request, gson)

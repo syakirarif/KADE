@@ -60,7 +60,7 @@ class PlayerDetailActivity : AppCompatActivity() {
 
         Picasso.get()
             .load(list.playerPhoto?.trim())
-            .placeholder(R.drawable.img_blank_badge)
+            .placeholder(R.drawable.img_blank_photo)
             .into(image)
 
         Picasso.get()
@@ -109,13 +109,13 @@ class PlayerDetailActivity : AppCompatActivity() {
             @SuppressLint("ObsoleteSdkInt")
             override fun onGlobalLayout() {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
-                    ll_product_details.getViewTreeObserver().removeGlobalOnLayoutListener(this)
+                    ll_product_details.viewTreeObserver.removeGlobalOnLayoutListener(this)
                 } else {
-                    ll_product_details.getViewTreeObserver().removeOnGlobalLayoutListener(this)
+                    ll_product_details.viewTreeObserver.removeOnGlobalLayoutListener(this)
                 }
-                val params = cv_player_detail.getLayoutParams() as RelativeLayout.LayoutParams
-                params.bottomMargin = ll_product_details.getMeasuredHeight() * -1
-                cv_player_detail.setLayoutParams(params)
+                val params = cv_player_detail.layoutParams as RelativeLayout.LayoutParams
+                params.bottomMargin = ll_product_details.measuredHeight * -1
+                cv_player_detail.layoutParams = params
             }
 
         })
@@ -152,12 +152,12 @@ class PlayerDetailActivity : AppCompatActivity() {
                 override fun onPrepareLoad(placeHolderDrawable: Drawable?) {}
 
                 override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
-                    originalBitmap = BitmapFactory.decodeResource(resources, R.drawable.img_blank_badge)
+                    originalBitmap = BitmapFactory.decodeResource(resources, R.drawable.img_blank_photo)
                 }
             })
 
             if(originalBitmap == null){
-                originalBitmap = BitmapFactory.decodeResource(resources, R.drawable.img_blank_badge)
+                originalBitmap = BitmapFactory.decodeResource(resources, R.drawable.img_blank_photo)
             }
 
             blurredBitmap = blurAnimation.blur(this, originalBitmap)

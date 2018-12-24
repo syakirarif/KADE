@@ -30,7 +30,7 @@ class SetupActivity : AppCompatActivity() {
 
         initData()
 
-        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+        if (this.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             rv_list_league.layoutManager = GridLayoutManager(this, 2)
         } else {
             rv_list_league.layoutManager = GridLayoutManager(this, 4)
