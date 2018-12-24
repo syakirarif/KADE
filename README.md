@@ -2,12 +2,12 @@
 The repository of my project in **Kotlin Android Developer Expert (KADE)**, an online course by **DICODING**.
 
 This repository contains 6 branches below:
-- submission1
-- submission2
-- submission3
-- submission4
-- final (default)
-- master
+- [submission1](https://github.com/syakirarif/KADE/tree/submission1)
+- [submission2](https://github.com/syakirarif/KADE/tree/submission2)
+- [submission3](https://github.com/syakirarif/KADE/tree/submission3)
+- [submission4](https://github.com/syakirarif/KADE/tree/submission4)
+- [final (default)](https://github.com/syakirarif/KADE)
+- [master](https://github.com/syakirarif/KADE/tree/master)
 
 ## ATTENTION!
 Mohon jadikan repository ini sebagai **bahan referensi**, bukan **bahan plagiasi**.
