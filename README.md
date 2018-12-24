@@ -10,7 +10,7 @@ This repository contains 6 branches below:
 - [master](https://github.com/syakirarif/KADE/tree/master)
 
 ## ATTENTION!
-Mohon jadikan repository ini sebagai **bahan referensi**, bukan **bahan plagiasi**.
+Please make this repository as your **reference material**, not as a **plagiarism material** for each submission.
 <br>Say no to plagiarism.
 
 ## Screenshots
@@ -98,8 +98,11 @@ Catatan:
 - Menggunakan Anko SQLite atau library lainnya dalam implementasi database.
 - Menerapkan Unit Test dan Instrumentation Test.
 
+## Download Release App
+[**Download Here**](https://github.com/syakirarif/KADE/blob/final/app/release/KADE_FC_v.3.1.7.apk?raw=true)
+
 ## LICENSE
-:warning:**MIT License**
+:warning: **MIT License**
 <br>
 **Copyright (c) 2018 Muhammad Syakir Arif**
 
